@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administratorpkg.SeeEmployeeDetailsController">
+   <children>
+      <Label layoutX="85.0" layoutY="114.0" text="Name:" />
+      <Label layoutX="84.0" layoutY="153.0" text="Address:" />
+      <Label layoutX="83.0" layoutY="195.0" text="Contact Number:" />
+      <Label layoutX="84.0" layoutY="236.0" text="Email:" />
+      <Label layoutX="79.0" layoutY="285.0" text="Date Of Birth:" />
+      <TextField fx:id="nameTextField" layoutX="206.0" layoutY="109.0" prefHeight="26.0" prefWidth="202.0" />
+      <TextField fx:id="addressTextField" layoutX="206.0" layoutY="149.0" prefHeight="26.0" prefWidth="202.0" />
+      <TextField fx:id="contactNumberTextField" layoutX="206.0" layoutY="191.0" prefHeight="26.0" prefWidth="202.0" />
+      <TextField fx:id="emailTextField" layoutX="206.0" layoutY="232.0" prefHeight="26.0" prefWidth="202.0" />
+      <DatePicker fx:id="DateOfBirthDatePicker" layoutX="206.0" layoutY="281.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="82.0" layoutY="379.0" text="Designation:" />
+      <Button layoutX="567.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#SeeInformationOnClick" text="See Informartion Details" />
+      <Label layoutX="516.0" layoutY="204.0" text="Enter Employee ID:" />
+      <TextField fx:id="designationTextField" layoutX="206.0" layoutY="375.0" prefHeight="26.0" prefWidth="202.0" />
+      <TextField fx:id="passwordTextField" layoutX="206.0" layoutY="422.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="80.0" layoutY="426.0" text="Password:" />
+      <TextField fx:id="employeeIDTextField" layoutX="651.0" layoutY="200.0" />
+      <DatePicker fx:id="DateOfJoiningDatePicker" layoutX="206.0" layoutY="325.0" prefHeight="26.0" prefWidth="202.0" />
+      <Label layoutX="78.0" layoutY="329.0" text="Date Of Joining" />
+   </children>
+</AnchorPane>

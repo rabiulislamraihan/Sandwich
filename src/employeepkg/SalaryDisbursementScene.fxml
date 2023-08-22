@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeepkg.SalaryDisbursementSceneController">
+   <children>
+      <TextField fx:id="salaryTextField" layoutX="312.0" layoutY="272.0" />
+      <Label layoutX="157.0" layoutY="136.0" text="Employee ID:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="BonusTextField" layoutX="312.0" layoutY="315.0" />
+      <Label layoutX="154.0" layoutY="276.0" text="Base Salary:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="OverTimePayTextField" layoutX="312.0" layoutY="365.0" />
+      <Label layoutX="157.0" layoutY="319.0" text="Bonus:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="157.0" layoutY="369.0" text="Over Time Pay:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="PerformanceBasedPayTextField" layoutX="312.0" layoutY="408.0" />
+      <Label layoutX="157.0" layoutY="412.0" text="Performance Based Pay:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="yearTextField" layoutX="312.0" layoutY="229.0" />
+      <Button layoutX="497.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#CalculateTotalSalaryOnClick" text="Caculate Total Salary" />
+      <Line endX="271.8000183105469" layoutX="225.0" layoutY="458.0" startX="-100.0" />
+      <Label layoutX="167.0" layoutY="487.0" text="Total:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font></Label>
+      <Button layoutX="654.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#PaySalaryOnClick" text="Pay salary" />
+      <Label fx:id="totalSalaryLabel" layoutX="312.0" layoutY="487.0" />
+      <Label layoutX="155.0" layoutY="233.0" text="Select Year:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <ComboBox fx:id="monthComboBox" layoutX="312.0" layoutY="178.0" prefWidth="150.0" />
+      <Label layoutX="155.0" layoutY="182.0" text="Select Month:" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="employeeTextField" layoutX="312.0" layoutY="132.0" />
+   </children>
+</AnchorPane>

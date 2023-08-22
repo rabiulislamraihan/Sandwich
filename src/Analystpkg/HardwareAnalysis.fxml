@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Analystpkg.HardwareAnalysisController">
+   <children>
+      <PieChart fx:id="piechart" layoutX="168.0" layoutY="56.0" prefHeight="398.0" prefWidth="566.0" title="Hardware Pricing Breakdown" />
+      <Button layoutX="386.0" layoutY="520.0" mnemonicParsing="false" onAction="#loadPiechartOnClick" text="Load Piechart">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="statusLabel" layoutX="340.0" layoutY="478.0" prefHeight="20.0" prefWidth="227.0" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Packagepkg.AddNewPackageController">
+   <children>
+      <Label layoutX="119.0" layoutY="63.0" text="Package Information:" />
+      <Label layoutX="121.0" layoutY="143.0" text="Title:" />
+      <Label layoutX="116.0" layoutY="182.0" text="Duration:" />
+      <Label layoutX="119.0" layoutY="262.0" text="Price:" />
+      <Label layoutX="116.0" layoutY="300.0" text="Description:" />
+      <TextField fx:id="titleTextfield" layoutX="215.0" layoutY="138.0" prefHeight="26.0" prefWidth="526.0" />
+      <TextField fx:id="priceTextField" layoutX="214.0" layoutY="258.0" />
+      <TextArea fx:id="descriptionTextArea" layoutX="215.0" layoutY="300.0" prefHeight="200.0" prefWidth="526.0" />
+      <ComboBox fx:id="durationComboBox" layoutX="214.0" layoutY="177.0" prefWidth="150.0" />
+      <Label layoutX="380.0" layoutY="182.0" text="(In Month)" />
+      <Button layoutX="215.0" layoutY="524.0" mnemonicParsing="false" onMouseClicked="#AddPackageButtonOnClick" text="Add Package" />
+      <TextField fx:id="codeTextField" layoutX="222.0" layoutY="101.0" prefHeight="26.0" prefWidth="171.0" />
+      <Label layoutX="120.0" layoutY="106.0" text="Package Code:" />
+      <RadioButton fx:id="availableRadioButton" layoutX="214.0" layoutY="227.0" mnemonicParsing="false" text="Available" />
+      <RadioButton fx:id="notAvailableRadioButton" layoutX="317.0" layoutY="227.0" mnemonicParsing="false" text="Not Available" />
+      <Label layoutX="116.0" layoutY="227.0" text="Availability:" />
+   </children>
+</AnchorPane>

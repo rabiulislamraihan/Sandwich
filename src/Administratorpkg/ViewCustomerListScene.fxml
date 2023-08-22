@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Administratorpkg.ViewCustomerListSceneController">
+   <children>
+      <TableView fx:id="tableView" layoutX="58.0" layoutY="63.0" prefHeight="535.0" prefWidth="807.0">
+        <columns>
+          <TableColumn fx:id="customerIDColumn" prefWidth="90.39998626708984" text="CustomerID" />
+            <TableColumn fx:id="nameColumn" prefWidth="151.20001220703125" text="Name" />
+            <TableColumn fx:id="contactColumn" prefWidth="147.199951171875" text="Contact" />
+            <TableColumn fx:id="emailColumn" prefWidth="136.80007934570312" text="Email" />
+            <TableColumn fx:id="joiningDateColumn" prefWidth="128.800048828125" text="Joining Date" />
+            <TableColumn fx:id="passwordOnClick" prefWidth="156.0" text="Password" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

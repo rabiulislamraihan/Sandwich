@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeepkg.SeeEmployeeSalaryDetailsController">
+   <children>
+      <Label layoutX="85.0" layoutY="40.0" text="Enter Employee ID:" />
+      <TextField fx:id="employeeIDTextField" layoutX="206.0" layoutY="36.0" />
+      <Button layoutX="387.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#SeeSalaryDetailsOnClick" text="See Salary Details" />
+      <TableView fx:id="tableView" layoutX="30.0" layoutY="117.0" prefHeight="502.0" prefWidth="838.0">
+        <columns>
+          <TableColumn fx:id="MonthColumn" prefWidth="114.39998817443848" text="Month" />
+            <TableColumn fx:id="YearColumn" prefWidth="82.39996337890625" text="Year" />
+          <TableColumn fx:id="BaseSalaryColumn" prefWidth="125.5999755859375" text="Base Salary" />
+            <TableColumn fx:id="BonusColumn" prefWidth="97.5999755859375" text="Bonus" />
+            <TableColumn fx:id="OvertimePayColumn" prefWidth="121.60000610351562" text="Overtime Pay" />
+            <TableColumn fx:id="PerformanceBasedPayColumn" prefWidth="181.60015869140625" text="Performance Based Pay" />
+            <TableColumn fx:id="TotalColumn" prefWidth="112.2666015625" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
