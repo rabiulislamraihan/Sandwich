@@ -73,5 +73,12 @@ public class AnalystHomePageSceneController implements Initializable {
         Parent parent = FXMLLoader.load(getClass().getResource("SurveyResults.fxml"));
         BorderPane.setCenter(parent);
     }
+
+    @FXML
+    private void AnalysePackagesOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AnalysePackage.fxml"));
+        BorderPane.setCenter(parent);
+        
+    }
     
 }

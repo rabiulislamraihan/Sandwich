@@ -43,12 +43,14 @@ public class TechnicianHomePageSceneController implements Initializable {
 
     @FXML
     private void newSetupOnClick(ActionEvent event) throws IOException {
-        
+        Parent parent = FXMLLoader.load(getClass().getResource("NewSetup.fxml"));
+        BorderPane.setCenter(parent);
     }
 
     @FXML
     private void maintenanceOnClick(ActionEvent event) throws IOException {
-        
+        Parent parent = FXMLLoader.load(getClass().getResource("ViewAppointments.fxml"));
+        BorderPane.setCenter(parent);      
     }
 
     @FXML

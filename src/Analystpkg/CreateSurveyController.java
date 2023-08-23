@@ -61,7 +61,7 @@ public class CreateSurveyController implements Initializable {
                     ois.close();
             } catch (IOException ex1) {  }           
         }
-        String QuestionNo = "Quetion " + Integer.toString(k++);
+        String QuestionNo = "Question " + Integer.toString(k++);
         Survey s = new Survey(QuestionNo, question);
         Survey.CreateNewSurvey(s);
         

@@ -70,7 +70,6 @@ public class SurveyResultsController implements Initializable {
     private void viewAnswersOnClick(MouseEvent event) {
         String questionNo = selectQuestionComboBox.getValue();
         
-        
         ObjectInputStream ois = null;
         try {
              Survey c;
@@ -78,8 +77,11 @@ public class SurveyResultsController implements Initializable {
              
             while(true){
                 c = (Survey) ois.readObject();
+                if(c.getQuestionNo().equals(questionNo)){
                 QuestionTextArea.setText(c.getQuestion());
                 break;
+                }
+                
             }
         }
         catch(RuntimeException e){

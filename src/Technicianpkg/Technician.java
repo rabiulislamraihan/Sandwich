@@ -5,6 +5,7 @@
 package Technicianpkg;
 
 import com.sun.scenario.effect.ImageData;
+import customerpkg.Customer;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
@@ -321,7 +322,46 @@ public class Technician implements Serializable{
         
        
    }
-    
+   public static boolean setAppointment(Customer c, LocalDate time){
+       
+        File s = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+
+     
+        try {
+            Appointment ap;
+            s = new File("Appointment.bin");
+            if(s.exists()){
+                fos = new FileOutputStream(s,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(s);
+                oos = new ObjectOutputStream(fos);               
+            }
+            
+               Appointment a = new Appointment(c, time, true);
+//           
+           oos.writeObject(a);
+            
+//           oos.close();
+           
+            
+
+        } catch (IOException ex) {
+            Logger.getLogger(Technician.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if(oos != null) oos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Technician.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }                
+
+       
+       return true;
+   }
     
     
     

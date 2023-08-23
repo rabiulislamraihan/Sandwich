@@ -17,10 +17,10 @@ public class Appointment implements Serializable {
     String name;
     int id;
     String address;
-    String time;
+    LocalDate time;
     boolean status;
 
-    public Appointment(Customer c, String time, boolean status) {
+    public Appointment(Customer c, LocalDate time, boolean status) {
         this.c = c;
         this.name = c.getName();
         this.address = c.getAddress();
@@ -61,11 +61,11 @@ public class Appointment implements Serializable {
         this.c = c;
     }
 
-    public String getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 
