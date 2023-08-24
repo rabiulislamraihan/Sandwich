@@ -330,7 +330,7 @@ public class Technician implements Serializable{
 
      
         try {
-            Appointment ap;
+          
             s = new File("Appointment.bin");
             if(s.exists()){
                 fos = new FileOutputStream(s,true);

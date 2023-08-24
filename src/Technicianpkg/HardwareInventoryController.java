@@ -6,9 +6,12 @@ package Technicianpkg;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -116,11 +119,69 @@ public class HardwareInventoryController implements Initializable {
         
         String updateItem =  equipmentCombobox.getValue();
         String updateCatagory = updateCombobox.getValue();
-        String newData = newDataTextfield.getText();
-        Hardware i = Technician.UpdateHardware(updateItem, updateCatagory, newData);
-    
-       
-        InventoryTable.getItems().add(i);
+        int newData = Integer.parseInt(newDataTextfield.getText());
+     
+         InventoryTable.getItems().clear();
+
+
+        ArrayList <Hardware> hardwareList = new ArrayList<>();
+        ObjectInputStream ois = null;
+        try {
+             Hardware h;
+             ois = new ObjectInputStream(new FileInputStream("Hardware.bin"));
+             
+            while(true){
+                h = (Hardware) ois.readObject();
+                if(h.getName().equals(updateItem)){
+                    if(updateCatagory.equals("Unit Price")){
+                        h.setUnitCost(newData);
+                    }
+                    else{
+                        h.setUnitsRemaining(newData);
+                    }
+                }
+                hardwareList.add(h);
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        
+        for (int i = 0; i < hardwareList.size(); i ++) {
+            File f = null;
+            FileOutputStream fos = null;      
+            ObjectOutputStream oos = null;
+
+            try {
+                f = new File("Hardware.bin");
+                if(i!=0){
+                    fos = new FileOutputStream(f,true);
+                    oos = new mainpkg.AppendableObjectOutputStream(fos);                
+                }
+                else{
+                    fos = new FileOutputStream(f);
+                    oos = new ObjectOutputStream(fos);               
+                }
+                oos.writeObject(hardwareList.get(i));
+                InventoryTable.getItems().add(hardwareList.get(i));
+                
+
+            } catch (IOException ex) {
+                Logger.getLogger(Packagepkg.Package.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if(oos != null) oos.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Packagepkg.Package.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
                
     }
     

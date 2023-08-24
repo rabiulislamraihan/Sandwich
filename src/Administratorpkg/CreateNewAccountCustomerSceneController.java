@@ -89,13 +89,13 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
 
     }
 
-    private void BackbuttonOnClick(MouseEvent event) throws IOException {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    private void BackbuttonOnClick(MouseEvent event) throws IOException {
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     @FXML
     private void BackbuttonOnClick(ActionEvent event) throws IOException {
@@ -105,7 +105,6 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        
         
     }
     

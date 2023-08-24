@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -102,6 +103,15 @@ public class NewSetupController implements Initializable {
             a.setHeaderText("Alert");
             a.setContentText("Appointment set for "+ time.toString());
             a.showAndWait();
+        }
+        
+        
+        ObservableList<Customer> selectedRows, allPeople;
+        allPeople = tableview.getItems();
+        selectedRows = tableview.getSelectionModel().getSelectedItems();
+        
+            for( Customer p: selectedRows){
+            allPeople.remove(c);
         }
                 
         
