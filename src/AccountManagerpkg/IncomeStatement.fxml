@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.IncomeStatementController">
+   <children>
+      <ComboBox fx:id="selectMonthCombobox" layoutX="163.0" layoutY="22.0" prefWidth="150.0" />
+      <Label layoutX="40.0" layoutY="26.0" text="Select Month:" />
+      <Label layoutX="351.0" layoutY="79.0" text="Expenses:" />
+      <Label layoutX="351.0" layoutY="128.0" text="Revenue: " />
+      <Label layoutX="637.0" layoutY="79.0" text="Net Profit:" />
+      <Label layoutX="639.0" layoutY="157.0" text="Net Loss:" />
+      <Button layoutX="708.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#calculateNetProfitButton" prefHeight="25.0" prefWidth="146.0" text="Calculate Net Profit" />
+      <Button layoutX="711.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#calculateNetLossButton" prefHeight="25.0" prefWidth="146.0" text="Calculate Net Loss:" />
+      <TextField fx:id="salaryTextfield" layoutX="164.0" layoutY="63.0" />
+      <TextField fx:id="rentTextfield" layoutX="163.0" layoutY="102.0" />
+      <TextField fx:id="revenueTextfield" layoutX="425.0" layoutY="124.0" />
+      <Button layoutX="326.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#addIncomeDataButton" prefHeight="25.0" prefWidth="120.0" text="Add Data" />
+      <Button layoutX="475.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#viewIncomeDataButton" prefHeight="25.0" prefWidth="120.0" text="View Data" />
+      <Button layoutX="363.0" layoutY="594.0" mnemonicParsing="false" onMouseClicked="#viewIncomeChartButton" prefHeight="36.0" prefWidth="232.0" text="View Chart" />
+      <TableView fx:id="incomeDataTable" layoutX="57.0" layoutY="257.0" prefHeight="318.0" prefWidth="787.0">
+        <columns>
+          <TableColumn fx:id="monthColumn" prefWidth="144.33331298828125" text="Month" />
+          <TableColumn fx:id="revenueColumn" prefWidth="148.6666259765625" text="Revenue" />
+            <TableColumn fx:id="expensesColumn" prefWidth="181.3333740234375" text="Expenses" />
+            <TableColumn fx:id="netProfitColumn" prefWidth="150.0" text="Net Profit" />
+            <TableColumn fx:id="netLossColumn" prefWidth="164.33331298828125" text="Net Loss" />
+        </columns>
+      </TableView>
+      <Label layoutX="24.0" layoutY="67.0" text="Salaries and Wages:" />
+      <Label layoutX="30.0" layoutY="105.0" text="Rent and Utilities:" />
+      <Label layoutX="16.0" layoutY="144.0" text="Marketing and Promotion:" />
+      <Label layoutX="36.0" layoutY="183.0" text="Content Aquisition:" />
+      <TextField fx:id="contentAquisitionTextfield" layoutX="163.0" layoutY="179.0" />
+      <TextField fx:id="marketingCostTextfield" layoutX="164.0" layoutY="140.0" />
+      <Button layoutX="386.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#calculateTotalExpensesButton" text="Calculate Total Expenses" />
+      <Line endX="-1.0" endY="167.33334350585938" layoutX="326.0" layoutY="30.0" startX="-1.0" startY="-8.666671752929688" />
+      <Line endX="-1.0" endY="167.33334350585938" layoutX="596.0" layoutY="25.0" startX="-1.0" startY="-8.666671752929688" />
+      <Label fx:id="expensesLabel" layoutX="425.0" layoutY="80.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label fx:id="netProfitLabel" layoutX="710.0" layoutY="72.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label fx:id="netLossLabel" layoutX="710.0" layoutY="153.0" prefHeight="25.0" prefWidth="149.0" />
+   </children>
+</AnchorPane>

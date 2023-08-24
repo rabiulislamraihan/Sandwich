@@ -9,8 +9,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -24,37 +24,37 @@ public class BudgetingAndForecastingController implements Initializable {
     @FXML
     private TextField budgetTextField;
     @FXML
-    private TextField expensesTextField;
-    @FXML
-    private TextField investmentTextField;
-    @FXML
     private TextField projectedRevenueTextField;
     @FXML
     private TextField actualRevenueTextField;
     @FXML
-    private TextField debtTextField;
+    private TableView<?> budgetDataTable;
     @FXML
-    private TableColumn<?, ?> monthColumn;
+    private TableColumn<?, ?> budgetMonthColumn;
     @FXML
     private TableColumn<?, ?> budgetColumn;
     @FXML
-    private TableColumn<?, ?> expensesColumn;
-    @FXML
-    private TableColumn<?, ?> investmentsColumn;
-    @FXML
     private TableColumn<?, ?> projectedRevenueColumn;
     @FXML
-    private TableColumn<?, ?> actualRevenueColumn;
+    private TableColumn<?, ?> projectedExpensesColumn;
     @FXML
-    private TableColumn<?, ?> debtColumn;
+    private ComboBox<?> selectMonthToAddDataCombobox;
     @FXML
-    private TableColumn<?, ?> savingsColumn;
+    private ComboBox<?> selectMonthToSeePerformanceCombonox;
     @FXML
-    private ComboBox<?> monthCombobox;
+    private TextField actualExpensesTextField;
     @FXML
-    private Label savingsTextField;
+    private TextField revenueVarianceTextField;
     @FXML
-    private TextField sa;
+    private TextField expensesVarianceTextField;
+    @FXML
+    private TableView<?> performanceDataTable;
+    @FXML
+    private TableColumn<?, ?> performanceMonthColumn;
+    @FXML
+    private TableColumn<?, ?> revenueVarianceColumn;
+    @FXML
+    private TableColumn<?, ?> expensesVarianceColumn;
 
     /**
      * Initializes the controller class.
@@ -65,7 +65,19 @@ public class BudgetingAndForecastingController implements Initializable {
     }    
 
     @FXML
-    private void budgetingShowChartButtonOnClick(MouseEvent event) {
+    private void addBudgetDataButtonOnClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void viewBudgetDataButtonOnClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void addPerformanceDataButtonOnClick(MouseEvent event) {
+    }
+
+    @FXML
+    private void viewPerformanceDataButtonOnClick(MouseEvent event) {
     }
     
 }
