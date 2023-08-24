@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Analystpkg.AnalyseCustomersController">
+   <children>
+      <Label layoutX="48.0" layoutY="41.0" text="Analyse Customer Demographic" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <BarChart fx:id="barcharrt" layoutX="95.0" layoutY="138.0" prefHeight="400.0" prefWidth="698.0">
+        <xAxis>
+          <CategoryAxis fx:id="AgeRange" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="NoOfCustomers" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

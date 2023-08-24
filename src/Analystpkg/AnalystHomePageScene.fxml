@@ -19,8 +19,13 @@
             <Menu mnemonicParsing="false" text="Sales Analysis">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#AnalyseBillsOnClick" text="Analyse Maintenance Bills" />
-                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                  <MenuItem mnemonicParsing="false" onAction="#AnalysePackagesOnClick" text="Analyse Packages" />
                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Customer Demographic">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#ageBreakdownOnClick" text="Age Breakdown" />
+              </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Hardware">
                <items>
