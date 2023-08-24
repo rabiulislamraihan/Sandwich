@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -18,6 +19,7 @@ public class AccountManagerHomePageSceneController implements Initializable {
 
     @FXML
     private BorderPane BorderPane;
+    
     
     
     @Override
@@ -39,19 +41,6 @@ public class AccountManagerHomePageSceneController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private void createFinancialDataMenuitem(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("Financial Reporting.fxml"));
-        BorderPane.setCenter(parent);
-    }
-
-    @FXML
-    private void generateFinancialReportMenuitem(ActionEvent event) {
-    }
-
-    @FXML
-    private void createbillmenuitem(ActionEvent event) {
-    }
 
     @FXML
     private void SalaryDisbursementOnClick(ActionEvent event) throws IOException {
@@ -63,6 +52,55 @@ public class AccountManagerHomePageSceneController implements Initializable {
     @FXML
     private void SeeEmployeeSalaryDetails(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/employeepkg/SeeEmployeeSalaryDetails.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+
+    @FXML
+    private void balanceSheetButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BalanceSheet.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void incomeStatementButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("IncomeStatement.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    private void cashFlowStatementButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CashFlowStatement.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void budgetAndPerformanceButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BudgetingAndForecasting.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void visualizeVarianceButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("VisualizeVariance.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void sendNotificationsMenuItem(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SendNotification.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void billConflictResolutionMenuItem(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BillConflictResolution.fxml"));
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }

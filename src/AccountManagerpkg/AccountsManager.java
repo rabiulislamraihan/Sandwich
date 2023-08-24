@@ -13,34 +13,66 @@ import java.time.LocalDate;
 import mainpkg.AppendableObjectOutputStream;
 
 public class AccountsManager implements Serializable {
-    public static void CreateFinancialData(String month, double expenses, double revenue, double profit, double loss, double customerAcquisition, double customerChurn){
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
+    public static void addIncomeData(String month, double salaryAndWages, double rentAndUtilities, double expenses, double revenue, double contentAcquisition, double marketingCost, double netProfit, double netLoss) {
+    File f = null;
+    FileOutputStream fos = null;      
+    ObjectOutputStream oos = null;
+    
+    try {
+        f = new File("IncomeData.bin"); // Adjust the file name as needed
+        if (f.exists()) {
+            fos = new FileOutputStream(f, true);
+            oos = new AppendableObjectOutputStream(fos);
+        } else {
+            fos = new FileOutputStream(f);
+            oos = new ObjectOutputStream(fos);
+        }
+      
+        IncomeStatement temp = new IncomeStatement(month, salaryAndWages, rentAndUtilities, expenses, revenue, contentAcquisition, marketingCost, netProfit, netLoss);
         
+        oos.writeObject(temp);
+
+    } catch (IOException ex) {
+        // Handle exceptions
+    } finally {
         try {
-            f = new File("FinancialData.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
+            if (oos != null) oos.close();
+        } catch (IOException ex) {
+            // Handle exceptions
+        }
+    }
+    } 
+    
+
+    public static void CreateBalanceSheetData(String month, double cash, double accountsReceivable, double investments, double totalAssets, double accountsPayable, double loan, double totalLiabilities, double ownersEquity) {
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            f = new File("BalanceSheetData.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
                 fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
+                oos = new ObjectOutputStream(fos);
             }
-          
-          FinancialData temp = new FinancialData(month, expenses, revenue, profit, loss, customerAcquisition, customerChurn);
-          
-          oos.writeObject(temp);
+
+            BalanceSheetData temp = new BalanceSheetData(month, cash, accountsReceivable, investments, totalAssets, accountsPayable, loan, totalLiabilities, ownersEquity);
+
+            oos.writeObject(temp);
 
         } catch (IOException ex) {
-//            Logger.getLogger(Scene1Controller.class.getName()).log(Level.SEVERE, null, ex);
+            // Handle the exception
         } finally {
             try {
-                if(oos != null) oos.close();
+                if (oos != null) oos.close();
             } catch (IOException ex) {
-//                Logger.getLogger(Scene1Controller.class.getName()).log(Level.SEVERE, null, ex);
+                // Handle the exception
             }
-        }                   
-    }   
+        }
+    }
 }
+
+

@@ -16,21 +16,28 @@
               <MenuItem mnemonicParsing="false" onAction="#ViewPersonalInformationOnClick" text="Personal Information" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Financial Reporting">
+            <Menu mnemonicParsing="false" text="Budgeting and Forecasting">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#createFinancialDataMenuitem" text="Create Financial Data" />
-                  <MenuItem mnemonicParsing="false" onAction="#generateFinancialReportMenuitem" text="Generate Financial Report" />
+                  <MenuItem mnemonicParsing="false" onAction="#budgetAndPerformanceButton" text="Track Budget and Performance" />
+                  <MenuItem mnemonicParsing="false" onAction="#visualizeVarianceButton" text="Visualize Variance" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Billing and Invoicing">
+            <Menu mnemonicParsing="false" text="Financial Overview">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#createbillmenuitem" text="Create Bill" />
+                  <MenuItem mnemonicParsing="false" onAction="#balanceSheetButton" text="Balance Sheet" />
+                  <MenuItem mnemonicParsing="false" onAction="#incomeStatementButton" text="Income Statement" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Employee Salary management">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#SalaryDisbursementOnClick" text="Salary Disbursement" />
                   <MenuItem mnemonicParsing="false" onAction="#SeeEmployeeSalaryDetails" text="See Employee Salary Details" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Customer Bill Management">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#sendNotificationsMenuItem" text="Send Notifications" />
+                  <MenuItem mnemonicParsing="false" onAction="#billConflictResolutionMenuItem" text="Bill Conflict Resolution" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Logout">
