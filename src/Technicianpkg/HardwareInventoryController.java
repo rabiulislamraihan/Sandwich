@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -120,6 +123,14 @@ public class HardwareInventoryController implements Initializable {
         String updateItem =  equipmentCombobox.getValue();
         String updateCatagory = updateCombobox.getValue();
         int newData = Integer.parseInt(newDataTextfield.getText());
+        if(newData<0){
+                        Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("Value cannot be less than 0!" );
+            a.showAndWait();
+            return;
+        }
      
          InventoryTable.getItems().clear();
 
@@ -137,7 +148,11 @@ public class HardwareInventoryController implements Initializable {
                         h.setUnitCost(newData);
                     }
                     else{
+                        if(newData==0){
+                            continue;
+                        }
                         h.setUnitsRemaining(newData);
+                        
                     }
                 }
                 hardwareList.add(h);
