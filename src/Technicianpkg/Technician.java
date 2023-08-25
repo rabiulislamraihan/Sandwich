@@ -6,6 +6,7 @@ package Technicianpkg;
 
 import com.sun.scenario.effect.ImageData;
 import customerpkg.Customer;
+import employeepkg.Employee;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
@@ -41,7 +42,7 @@ import mainpkg.PDFGenerator;
  *
  * @author Hp
  */
-public class Technician implements Serializable{
+public class Technician extends Employee implements Serializable{
     
     
     public static void AddHardware(String name, int cost, int units){
@@ -180,13 +181,11 @@ public class Technician implements Serializable{
         
         
         public static void CreateReport(String subject, String text){
-            
-            
+               
         File s = null;
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
-
-       
+   
         
         try {
             s = new File("Report.bin");
@@ -292,7 +291,7 @@ public class Technician implements Serializable{
    public static String LookupClientHistory(int id){
        
         ObjectInputStream ois = null;
-        String data = null;
+        String data = "";
         try{
             ClientHistory ch;
             ois = new ObjectInputStream(new FileInputStream("ClientHistory.bin"));
@@ -300,7 +299,7 @@ public class Technician implements Serializable{
             while(true){
                 ch = (ClientHistory) ois.readObject();
                 if(ch.getId()==(id)){
-                    data = data+ ch.name + "\n" + ch.lastservicing + "\n" + ch.getIssue() + "\n \n";
+                    data = data + ch.name + "\n" + ch.lastservicing + "\n" + ch.getIssue() + "\n \n";
                 }
                 
             }
@@ -362,6 +361,10 @@ public class Technician implements Serializable{
        
        return true;
    }
+
+    public Technician(int employeeID, String Name, String Address, String ContactNumber, String Email, LocalDate DateOfBirth, LocalDate DateOfJoining, String Password, String Designation) {
+        super(employeeID, Name, Address, ContactNumber, Email, DateOfBirth, DateOfJoining, Password, Designation);
+    }
     
     
     

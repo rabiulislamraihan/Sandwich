@@ -124,7 +124,7 @@ public class HardwareInventoryController implements Initializable {
         String updateCatagory = updateCombobox.getValue();
         int newData = Integer.parseInt(newDataTextfield.getText());
         if(newData<0){
-                        Alert a = new Alert(Alert.AlertType.INFORMATION);
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");
             a.setContentText("Value cannot be less than 0!" );

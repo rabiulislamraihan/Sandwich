@@ -16,15 +16,20 @@
               <MenuItem mnemonicParsing="false" onAction="#ViewPersonalInformationOnClick" text="Personal Information" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Package">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#BuyPackageButtonOnClick" text="Buy Package" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Survey">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#answerSurveysOnClick" text="Answer Survey" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Package">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#BuyPackageButtonOnClick" text="Buy Package" />
-               </items>
+            <Menu mnemonicParsing="false" text="Help Line">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AskQuestionOnClick" text="Question and Answer" />
+              </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>

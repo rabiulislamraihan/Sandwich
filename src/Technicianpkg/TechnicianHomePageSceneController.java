@@ -79,7 +79,7 @@ public class TechnicianHomePageSceneController implements Initializable {
 
     @FXML
     private void AnswerQueriesOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("HardwareInventory.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("AnswerQueries.fxml"));
         BorderPane.setCenter(parent);
     }
 

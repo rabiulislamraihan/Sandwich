@@ -59,5 +59,13 @@ public class CustomerHomePageSceneController implements Initializable {
         ctrl.data(c);
         BorderPane.setCenter(root);
     }
+
+    @FXML
+    private void AskQuestionOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AskQuestion.fxml"));
+        BorderPane.setCenter(parent); 
+        
+        
+    }
     
 }

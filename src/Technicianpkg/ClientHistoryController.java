@@ -74,6 +74,7 @@ public class ClientHistoryController implements Initializable, Serializable {
     @FXML
     private void lookupClientHistory(ActionEvent event) {
         
+        showLookupTextarea.clear();
         int lookupID = Integer.parseInt(searchClientIDTextfield.getText());
          if(Account.CheckCustomerAccountExistence(lookupID)){
              String data = Technician.LookupClientHistory(lookupID);
