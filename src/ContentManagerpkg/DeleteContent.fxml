@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContentManagerpkg.DeleteContentController">
+   <children>
+      <Label layoutX="84.0" layoutY="77.0" text="Select Content to Delete:" />
+      <Label layoutX="86.0" layoutY="171.0" text="Updated List of Content:" />
+      <Button layoutX="581.0" layoutY="72.0" mnemonicParsing="false" onMouseClicked="#deleteContentOnClick" prefHeight="99.0" prefWidth="200.0" text="Delete Content" />
+      <ComboBox fx:id="deleteContent" layoutX="271.0" layoutY="72.0" prefWidth="150.0" />
+      <TextArea fx:id="showTextField" layoutX="71.0" layoutY="235.0" prefHeight="368.0" prefWidth="779.0" />
+   </children>
+</AnchorPane>

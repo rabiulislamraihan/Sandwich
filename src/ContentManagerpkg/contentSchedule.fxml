@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ContentManagerpkg.ContentScheduleController">
+   <children>
+      <Label layoutX="81.0" layoutY="105.0" text="Content Name:" />
+      <Label layoutX="81.0" layoutY="147.0" text="Content Details:" />
+      <Label layoutX="534.0" layoutY="105.0" text="Content Name:" />
+      <Label layoutX="532.0" layoutY="147.0" text="Content Details:" />
+      <Label layoutX="81.0" layoutY="47.0" text="Schedule Content:" />
+      <Label layoutX="534.0" layoutY="47.0" text="View Content Schedule:" />
+      <TextField fx:id="contentName" layoutX="202.0" layoutY="100.0" />
+      <TextArea fx:id="contentDetails" layoutX="80.0" layoutY="179.0" prefHeight="320.0" prefWidth="295.0" />
+      <TextArea fx:id="contentDetailsView" layoutX="534.0" layoutY="179.0" prefHeight="320.0" prefWidth="289.0" />
+      <ComboBox fx:id="contentNameCB" layoutX="649.0" layoutY="100.0" prefHeight="31.0" prefWidth="187.0" />
+      <Button layoutX="170.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#saveScheduleOnClick" text="Save Schedule" />
+      <Button layoutX="633.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#viewScheduleOnClick" text="View Schedule" />
+   </children>
+</AnchorPane>

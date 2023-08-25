@@ -67,10 +67,6 @@ public class SrPricingController implements Initializable {
         pmShow.setText("Previous Price: " + p.getPrice() + "\n" + 
                 "Current Price: " + newPrice);
         Administrator.UpdatePrice(p, newPrice);
-        
-        
-        
-        
     }
 
 

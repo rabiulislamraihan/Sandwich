@@ -5,15 +5,27 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContentManagerpkg.ContentManagerHomePageSceneController">
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContentManagerpkg.ContentManagerHomePageSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Account">
+          <Menu mnemonicParsing="false" onAction="#licenseOnClick" text="Account">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#ViewPersonalInformationOnClick" text="Personal Information" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="License &amp; Agreement">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#licenseOnClick" text="License" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Actions">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#contentScheduleOnClick" text="Create Content Schedule" />
+                  <MenuItem mnemonicParsing="false" onAction="#contentPlanOnClick" text="Create Content Plan" />
+                  <MenuItem mnemonicParsing="false" onAction="#deleteContentOnClick" text="Delete Content" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />
