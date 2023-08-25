@@ -44,6 +44,7 @@ public class AnalyseCustomersController implements Initializable {
         int A = 0;
         int M = 0;
         int V = 0;
+        int Z = 0;
         
 //        prints in console
          ObjectInputStream ois=null;
@@ -60,8 +61,11 @@ public class AnalyseCustomersController implements Initializable {
             else if(age.getYears()<10){
                 M++;
             }
-            else{
+            else if(age.getYears()<15){
                 V++;
+            }
+            else{
+                Z++;
             }
             System.out.println(c.toString());
             }
@@ -80,10 +84,12 @@ public class AnalyseCustomersController implements Initializable {
         }
         series.getData().add(new XYChart.Data<String,Number>("0-5 years" , A));
         series.getData().add(new XYChart.Data<String,Number>("5-10 years" , M));
-        series.getData().add(new XYChart.Data<String,Number>("10-20 years" , V));
+        series.getData().add(new XYChart.Data<String,Number>("10-15 years" , V));
+        series.getData().add(new XYChart.Data<String,Number>("15-20 years" , Z));
         series.setName("User Age Demographic");
         barcharrt.getData().add(series);
-        
+        AgeRange.setLabel("Age Range of Customers");
+        NoOfCustomers.setLabel("No. of Customers");
        
         
     }

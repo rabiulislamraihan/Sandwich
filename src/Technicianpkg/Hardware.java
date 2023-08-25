@@ -7,7 +7,7 @@ package Technicianpkg;
 import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 
-/**
+/*
  *
  * @author Hp
  */
@@ -48,7 +48,4 @@ public class Hardware implements Serializable{
     }
     
 
-
-    
-    
 }
