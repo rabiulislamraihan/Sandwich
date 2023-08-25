@@ -27,7 +27,7 @@ public class GenerateAndPayBillController implements Initializable {
         this.p = p;
         this.c = c;
         bill =
-                "Customer ID: " + c.getCustomerID() +
+                "Customer ID: " + c.getID() +
                 "\nCustomer Name: " + c.getName() +
                 "\nCustomer Address: " + c.getAddress() +
                 "\nCustomer Contact Number: " + c.getContactNumber() +
@@ -49,7 +49,7 @@ public class GenerateAndPayBillController implements Initializable {
     private void PayBillButtonOnClick(MouseEvent event) {
         int transactionID = Subscriptions.GenerateTransactionID();
             Subscriptions s = new Subscriptions(
-                    c.getCustomerID(),
+                    c.getID(),
                     p.getCode(),
                     LocalDate.now(),
                     p.getPrice(),

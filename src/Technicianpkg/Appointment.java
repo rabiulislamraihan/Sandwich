@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Technicianpkg;
 
 import customerpkg.Customer;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- *
- * @author Hp
- */
+
 public class Appointment implements Serializable {
     Customer c;
     String name;
@@ -24,7 +18,7 @@ public class Appointment implements Serializable {
         this.c = c;
         this.name = c.getName();
         this.address = c.getAddress();
-        this.id = c.getCustomerID();
+        this.id = c.getID();
         this.time = time;
         this.status = status;
     }

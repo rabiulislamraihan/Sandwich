@@ -25,7 +25,7 @@ public interface Account {
              
             while(true){
                 e = (Employee) ois.readObject();
-                usedIds.add(e.getEmployeeID());
+                usedIds.add(e.getID());
             }
         }
         catch(RuntimeException e){
@@ -75,7 +75,7 @@ public interface Account {
              
             while(true){
                 c = (Employee) ois.readObject();
-                if(c.getEmployeeID() == EmployeeID) {
+                if(c.getID() == EmployeeID) {
                     result = true;
                 }
             }
@@ -129,7 +129,7 @@ public interface Account {
              
             while(true){
                 c = (Employee) ois.readObject();
-                if(c.getEmployeeID() == EmployeeID) {
+                if(c.getID() == EmployeeID) {
                     if(c.getPassword().equals(Password)) {
                         result = true;
                     }
@@ -157,7 +157,7 @@ public interface Account {
              
             while(true){
                 c = (Employee) ois.readObject();
-                if(c.getEmployeeID() == EmployeeID) {
+                if(c.getID() == EmployeeID) {
                     oc = c;
                 }
             }
@@ -185,7 +185,7 @@ public interface Account {
              
             while(true){
                 e = (Customer) ois.readObject();
-                usedIds.add(e.getCustomerID());
+                usedIds.add(e.getID());
             }
         }
         catch(RuntimeException e){
@@ -216,7 +216,7 @@ public interface Account {
              
             while(true){
                 c = (Customer) ois.readObject();
-                if(c.getCustomerID() == CustomerID) {
+                if(c.getID() == CustomerID) {
                     result = true;
                 }
             }
@@ -269,7 +269,7 @@ public interface Account {
              
             while(true){
                 c = (Customer) ois.readObject();
-                if(c.getCustomerID() == CustomerID) {
+                if(c.getID() == CustomerID) {
                     if(c.getPassword().equals(Password)) {
                         result = true;
                     }
@@ -298,7 +298,7 @@ public interface Account {
              
             while(true){
                 c = (Customer) ois.readObject();
-                if(c.getCustomerID() == CustomerID) {
+                if(c.getID() == CustomerID) {
                     oc = c;
                 }
             }
