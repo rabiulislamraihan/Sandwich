@@ -15,11 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
+
 public class EmployeeLoginPageSceneController implements Initializable {
 
     @FXML
@@ -29,9 +25,7 @@ public class EmployeeLoginPageSceneController implements Initializable {
     @FXML
     private TextField passwordTextField;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         designationComboBox.getItems().addAll(
@@ -42,7 +36,6 @@ public class EmployeeLoginPageSceneController implements Initializable {
                 "Marketing Executive",
                 "Sales Representative",
                 "Technician");
-        // TODO
     }    
 
     @FXML

@@ -1,5 +1,4 @@
 package Administratorpkg;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +20,6 @@ public class AdministratorHomePageSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML

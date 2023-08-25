@@ -1,9 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package Packagepkg;
-
+import Administratorpkg.Administrator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,12 +11,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import mainpkg.PopUp;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
 public class AddNewPackageController implements Initializable {
 
     @FXML
@@ -38,18 +30,13 @@ public class AddNewPackageController implements Initializable {
     @FXML
     private RadioButton notAvailableRadioButton;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ToggleGroup tg = new ToggleGroup();
         availableRadioButton.setToggleGroup(tg);
         notAvailableRadioButton.setToggleGroup(tg);
-
         durationComboBox.getItems().addAll(1,  2, 3, 6,  12, 24);
-
-        // TODO
     }    
 
     @FXML
@@ -64,14 +51,11 @@ public class AddNewPackageController implements Initializable {
         String code = codeTextField.getText();
         Package p = new Package(title, duration, price, description, code, available);
         if(!Package.checkPackageexistence(p)){
-            Package.AddNewPackage(p);
+            Administrator.AddNewPackage(p);
+            PopUp.Message("Package Added Succesfully !");
         }
         else {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Package already exists !");
-            a.showAndWait();
+            PopUp.Message("Package already exists !");
         }
     }
     

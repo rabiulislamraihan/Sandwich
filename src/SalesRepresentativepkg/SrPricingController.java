@@ -1,6 +1,7 @@
 
 package SalesRepresentativepkg;
 
+import Administratorpkg.Administrator;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -65,7 +66,7 @@ public class SrPricingController implements Initializable {
         Package p = Package.getInstance(pmPackage.getValue());
         pmShow.setText("Previous Price: " + p.getPrice() + "\n" + 
                 "Current Price: " + newPrice);
-        Package.UpdatePrice(p, newPrice);
+        Administrator.UpdatePrice(p, newPrice);
         
         
         

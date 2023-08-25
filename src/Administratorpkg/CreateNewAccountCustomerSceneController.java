@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 public class CreateNewAccountCustomerSceneController implements Initializable {
 
@@ -51,21 +52,13 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
             String password = passwordTextField.getText();
             int customerID = Account.GenerateCustomerID();
             if(Account.CheckCustomerAccountExistence(email)) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setTitle("Information Alert");
-                a.setHeaderText("Alert");
-                a.setContentText("Account Already Exists !");
-                a.showAndWait();
+                PopUp.Message("Account Already Exists !");
             }
             else {
                 Customer c = new Customer(customerID, name, address, contactNumber, email, DOB, password);
                 Administrator.CustomerCreateNewAccount(c);
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setTitle("Information Alert");
-                a.setHeaderText("Alert");
-                a.setContentText("Account has been Succesfully Created\n"
+                PopUp.Message("Account has been Succesfully Created\n"
                         + "Your Customer ID is: " + Integer.toString(customerID));
-                a.showAndWait();
             }
             
 

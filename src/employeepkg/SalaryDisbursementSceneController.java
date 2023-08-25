@@ -1,6 +1,7 @@
 
 package employeepkg;
 
+import Administratorpkg.Administrator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 
 public class SalaryDisbursementSceneController implements Initializable {
@@ -65,11 +67,7 @@ public class SalaryDisbursementSceneController implements Initializable {
     private void PaySalaryOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeTextField.getText());
         if (!Account.CheckEmployeeAccountExistence(id)) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Employee Doesn't Exist !");
-            a.showAndWait();
+            PopUp.Message("Employee Doesn't Exist !");
         }
         else {
             String month = monthComboBox.getValue();
@@ -79,12 +77,8 @@ public class SalaryDisbursementSceneController implements Initializable {
             int overtimepay = Integer.parseInt(OverTimePayTextField.getText());
             int performancebasedsalary = Integer.parseInt(PerformanceBasedPayTextField.getText());
             Salary s = new Salary(month, year, id, baseSalary, bonus, overtimepay, performancebasedsalary);
-            Employee.PaySalary(s);
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Salary has been paid !");
-            a.showAndWait();
+            Administrator.PaySalary(s);
+            PopUp.Message("Salary has been paid !");
         }
     }
     

@@ -1,6 +1,7 @@
 
 package SalesRepresentativepkg;
 
+import Administratorpkg.Administrator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -65,7 +66,7 @@ public class DeletePackageController implements Initializable {
     @FXML
     private void DeletePackageOnClick(MouseEvent event) throws IOException {
         Package p = tableView.getSelectionModel().getSelectedItem();
-        Package.deleteItem(p);
+        Administrator.deleteItem(p);
         loadTable();
 
     }

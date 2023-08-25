@@ -1,7 +1,5 @@
 
 package Packagepkg;
-
-import employeepkg.Employee;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -39,116 +37,6 @@ public class Package implements Serializable {
         this.isAvailable = isAvailable;
     }
     
-    public static void deleteItem(Package p) {
-        ArrayList <Package> pkgList = new ArrayList<>();
-        ObjectInputStream ois = null;
-        try {
-             Package c;
-             ois = new ObjectInputStream(new FileInputStream("Package.bin"));
-             
-            while(true){
-                c = (Package) ois.readObject();
-                if(!c.getTitle().equals(p.getTitle())) pkgList.add(c);
-            }
-        }
-        catch(RuntimeException e){
-            e.printStackTrace();
-        }
-        catch (Exception ex) {
-            try {
-                if(ois!=null)
-                    ois.close();
-            } catch (IOException ex1) {  }           
-        }
-        if(pkgList.size() == 0) {
-            File file = new File("Package.bin");
-            file.delete();
-        }
-        
-        for (int i = 0; i < pkgList.size(); i ++) {
-            File f = null;
-            FileOutputStream fos = null;      
-            ObjectOutputStream oos = null;
-
-            try {
-                f = new File("Package.bin");
-                if(i!=0){
-                    fos = new FileOutputStream(f,true);
-                    oos = new AppendableObjectOutputStream(fos);                
-                }
-                else{
-                    fos = new FileOutputStream(f);
-                    oos = new ObjectOutputStream(fos);               
-                }
-                oos.writeObject(pkgList.get(i));
-
-            } catch (IOException ex) {
-                Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    if(oos != null) oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-    }
-    
-    
-    public static void UpdatePrice(Package p, int newPrice) {
-        ArrayList <Package> pkgList = new ArrayList<>();
-        ObjectInputStream ois = null;
-        try {
-             Package c;
-             ois = new ObjectInputStream(new FileInputStream("Package.bin"));
-             
-            while(true){
-                c = (Package) ois.readObject();
-                if(c.getCode().equals(p.getCode())) c.setPrice(newPrice);
-                pkgList.add(c);
-            }
-        }
-        catch(RuntimeException e){
-            e.printStackTrace();
-        }
-        catch (Exception ex) {
-            try {
-                if(ois!=null)
-                    ois.close();
-            } catch (IOException ex1) {  }           
-        }
-        
-        for (int i = 0; i < pkgList.size(); i ++) {
-            File f = null;
-            FileOutputStream fos = null;      
-            ObjectOutputStream oos = null;
-
-            try {
-                f = new File("Package.bin");
-                if(i!=0){
-                    fos = new FileOutputStream(f,true);
-                    oos = new AppendableObjectOutputStream(fos);                
-                }
-                else{
-                    fos = new FileOutputStream(f);
-                    oos = new ObjectOutputStream(fos);               
-                }
-                oos.writeObject(pkgList.get(i));
-
-            } catch (IOException ex) {
-                Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    if(oos != null) oos.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-        
-    }
-    
-    
     public static Package getInstance(String Title) {
         ObjectInputStream ois = null;
         Package oc = null;
@@ -174,7 +62,6 @@ public class Package implements Serializable {
             } catch (IOException ex1) {  }           
         }
         return oc;
-        
     }
 
     
@@ -206,37 +93,6 @@ public class Package implements Serializable {
     }
     
     
-    public static void AddNewPackage(Package p) {
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("Package.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            oos.writeObject(p);
-
-        } catch (IOException ex) {
-            Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if(oos != null) oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Package.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
-    
-    
-
     public String getTitle() {
         return Title;
     }
@@ -276,7 +132,4 @@ public class Package implements Serializable {
     public void setCode(String Code) {
         this.Code = Code;
     }
-    
-    
-    
 }

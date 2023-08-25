@@ -1,21 +1,8 @@
 
 package employeepkg;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import mainpkg.AppendableObjectOutputStream;
 
 
 public class Employee implements Serializable {
@@ -49,63 +36,6 @@ public class Employee implements Serializable {
 
     public void setDesignation(String Designation) {
         this.Designation = Designation;
-    }
-    
-    
-    public static void CreateNewAccount(Employee c) {
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("Employee.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            oos.writeObject(c);
-
-        } catch (IOException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if(oos != null) oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
-    public static void PaySalary(Salary c) {
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;
-
-        try {
-            f = new File("Salary.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            oos.writeObject(c);
-
-        } catch (IOException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if(oos != null) oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     public String getPassword() {

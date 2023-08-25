@@ -30,7 +30,6 @@ public class SelectUserSceneController implements Initializable {
         ToggleGroup tg = new ToggleGroup();
         customerRadioButton.setToggleGroup(tg);
         EmployeeRadioButton.setToggleGroup(tg);
-        // TODO
     }    
 
     @FXML

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Packagepkg;
 
 import customerpkg.Subscriptions;
@@ -9,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -21,11 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import mainpkg.PDFGenerator;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
+
 public class PackageSoldPieChartController implements Initializable {
 
     @FXML
@@ -35,13 +29,9 @@ public class PackageSoldPieChartController implements Initializable {
     @FXML
     private Button DownloadButtonOnClick1;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        // TODO
     }    
 
     @FXML
@@ -51,32 +41,17 @@ public class PackageSoldPieChartController implements Initializable {
 
     @FXML
     private void GenerateButtonOnClick(MouseEvent event) {
-        ObjectInputStream ois = null;
-        Map<String, Integer> packageCounts = new HashMap<>();
-        try {
-             Subscriptions c;
-             ois = new ObjectInputStream(new FileInputStream("Subscriptions.bin"));
-             
-            while(true){
-                c = (Subscriptions) ois.readObject();
-                packageCounts.put(c.getPackageID(), packageCounts.getOrDefault(c.getPackageID(), 0) + 1);
-                
-            }
-        }
-        catch(RuntimeException e){
-            e.printStackTrace();
-        }
-        catch (Exception ex) {
-            try {
-                if(ois!=null)
-                    ois.close();
-            } catch (IOException ex1) {  }           
-        }
         
+        Map<String, Integer> packageCounts = new HashMap<>();
+        ArrayList <Subscriptions> subscriptionList = new ArrayList<>();
+        for (int i = 0; i < subscriptionList.size(); i ++) {
+            Subscriptions c = subscriptionList.get(i);
+            packageCounts.put(c.getPackageID(), packageCounts.getOrDefault(c.getPackageID(), 0) + 1);
+            
+        }
         for (Map.Entry<String, Integer> entry : packageCounts.entrySet()) {
             list.add( new PieChart.Data(entry.getKey(), entry.getValue()) );
             PieChart.setData(list);
         }
     }
-    
 }

@@ -1,22 +1,23 @@
 
 package employeepkg;
 
-import Administratorpkg.*;
+import Administratorpkg.Administrator;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 public class SeeEmployeeSalaryDetailsController implements Initializable {
 
@@ -57,36 +58,9 @@ public class SeeEmployeeSalaryDetailsController implements Initializable {
     private void SeeSalaryDetailsOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeIDTextField.getText());
         if (Account.CheckEmployeeAccountExistence(id) == false) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Employee Not Found !");
-            a.showAndWait();
+            PopUp.Message("Employee Not Found !");
             return;
         }
-        
-        ObjectInputStream ois = null;
-        Employee oc = null;
-        try {
-             Salary c;
-             ois = new ObjectInputStream(new FileInputStream("Salary.bin"));
-             
-            while(true){
-                c = (Salary) ois.readObject();
-                if(c.getEmployeeID() == id) {
-                    tableView.getItems().add(c);
-                }
-            }
-        }
-        catch(RuntimeException e){
-            e.printStackTrace();
-        }
-        catch (Exception ex) {
-            try {
-                if(ois!=null)
-                    ois.close();
-            } catch (IOException ex1) {  }           
-        }
+        tableView.getItems().addAll(Administrator.getSalaryList());
     }
-    
 }

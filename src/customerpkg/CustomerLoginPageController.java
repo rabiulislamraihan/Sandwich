@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 
 public class CustomerLoginPageController implements Initializable {
@@ -33,19 +34,12 @@ public class CustomerLoginPageController implements Initializable {
         int id = Integer.parseInt(customerIDTextField.getText());
         String password = PasswordTextField.getText();
         if(!Account.CheckCustomerAccountExistence(id)) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Account Doesn't Exists !");
-            a.showAndWait();
+            PopUp.Message("Account Doesn't Exists !");
             return;
         }
         if(!Account.CustomerpasswordMatch(id, password)) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Password didn't Match !");
-            a.showAndWait();
+            PopUp.Message("Password didn't Match !");
             return;
         }
         Customer c = Account.getCustomerInstance(id);

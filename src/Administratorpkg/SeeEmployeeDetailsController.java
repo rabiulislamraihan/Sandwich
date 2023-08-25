@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 
 public class SeeEmployeeDetailsController implements Initializable {
@@ -42,24 +43,15 @@ public class SeeEmployeeDetailsController implements Initializable {
     @FXML
     private DatePicker DateOfJoiningDatePicker;
 
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML
     private void SeeInformationOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeIDTextField.getText());
         if (Account.CheckEmployeeAccountExistence(id) == false) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Employee Not Found !");
-            a.showAndWait();
+            PopUp.Message("Employee Not Found !");
         }
         Employee employee = Account.getEmployeeInstance(id);
             nameTextField.setText(employee.getName());

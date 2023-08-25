@@ -2,8 +2,6 @@
 package employeepkg;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-
 
 public class Salary implements Serializable {
     private String Month;
@@ -91,7 +89,4 @@ public class Salary implements Serializable {
     public void setPerformanceBasedPay(int PerformanceBasedPay) {
         this.PerformanceBasedPay = PerformanceBasedPay;
     }
-    
-    
-    
 }

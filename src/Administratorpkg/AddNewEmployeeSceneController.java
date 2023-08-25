@@ -13,6 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import mainpkg.Account;
+import mainpkg.PopUp;
 
 
 public class AddNewEmployeeSceneController implements Initializable {
@@ -51,28 +52,19 @@ public class AddNewEmployeeSceneController implements Initializable {
         LocalDate DOB = DateOfBirthDatePicker.getValue();
         String designation = designationComboBox.getValue();
         if(Account.CheckEmployeeAccountExistence(email) == true) {
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Information Alert");
-            a.setHeaderText("Alert");
-            a.setContentText("Account Already Exists !");
-            a.showAndWait();
+            PopUp.Message("Account Already Exists !");
             return;
         }
-        else {
-            int id = Account.GenerateEmployeeID();
-            String password = Account.GenerateEmployeePassword();
-            LocalDate DOJ = LocalDate.now();
-            Employee e = new Employee(id, name, address, contactNumber, email, DOB, DOJ, password, designation);
-            Employee.CreateNewAccount(e);
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setTitle("Employee ID & Password");
-            a.setHeaderText("Employee ID and Password");
-            a.setContentText("Account has been Successfully Created\n"
-                    + "Employee ID: " + id +"\n"
-                    + "Employee Password: " + password);
-            a.showAndWait();
+        int id = Account.GenerateEmployeeID();
+        String password = Account.GenerateEmployeePassword();
+        LocalDate DOJ = LocalDate.now();
+        Employee e = new Employee(id, name, address, contactNumber, email, DOB, DOJ, password, designation);
+        Administrator.EmployeeCreateNewAccount(e);
+        
+        PopUp.Message("Account has been Successfully Created\n"
+                + "Employee ID: " + id +"\n"
+                + "Employee Password: " + password);
             
-        }
     }
     
 }
