@@ -58,7 +58,7 @@ public class GenerateBillController implements Initializable {
         String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         int id = Integer.parseInt(idOfClientTextfield.getText());
         if(Account.CheckCustomerAccountExistence(id)){
-            Customer c = Account.getInstance(id);
+            Customer c = Account.getCustomerInstance(id);
             nameOfClientLabel.setText(c.getName());
             name = c.getName();
         }

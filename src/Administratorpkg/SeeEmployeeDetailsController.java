@@ -18,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Account;
 
 
 public class SeeEmployeeDetailsController implements Initializable {
@@ -53,14 +54,14 @@ public class SeeEmployeeDetailsController implements Initializable {
     @FXML
     private void SeeInformationOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeIDTextField.getText());
-        if (Employee.CheckAccountExistence(id) == false) {
+        if (Account.CheckEmployeeAccountExistence(id) == false) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");
             a.setContentText("Employee Not Found !");
             a.showAndWait();
         }
-        Employee employee = Employee.getInstance(id);
+        Employee employee = Account.getEmployeeInstance(id);
             nameTextField.setText(employee.getName());
             addressTextField.setText(employee.getAddress());
             contactNumberTextField.setText(employee.getContactNumber());

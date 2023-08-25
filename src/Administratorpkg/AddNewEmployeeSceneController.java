@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Account;
 
 
 public class AddNewEmployeeSceneController implements Initializable {
@@ -49,7 +50,7 @@ public class AddNewEmployeeSceneController implements Initializable {
         String email = emailTextField.getText();
         LocalDate DOB = DateOfBirthDatePicker.getValue();
         String designation = designationComboBox.getValue();
-        if(Employee.CheckAccountExistence(email) == true) {
+        if(Account.CheckEmployeeAccountExistence(email) == true) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");
@@ -58,8 +59,8 @@ public class AddNewEmployeeSceneController implements Initializable {
             return;
         }
         else {
-            int id = Employee.GenerateEmployeeID();
-            String password = Employee.GenerateEmployeePassword();
+            int id = Account.GenerateEmployeeID();
+            String password = Account.GenerateEmployeePassword();
             LocalDate DOJ = LocalDate.now();
             Employee e = new Employee(id, name, address, contactNumber, email, DOB, DOJ, password, designation);
             Employee.CreateNewAccount(e);

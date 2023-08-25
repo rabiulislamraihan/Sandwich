@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package employeepkg;
 
 import Administratorpkg.*;
@@ -19,12 +16,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Account;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
 public class SeeEmployeeSalaryDetailsController implements Initializable {
 
     @FXML
@@ -46,17 +39,7 @@ public class SeeEmployeeSalaryDetailsController implements Initializable {
     @FXML
     private TableColumn<Salary, Integer> TotalColumn;
 
-    /**
-     * Initializes the controller class.
-     */
-//    rivate String Month;
-//    private int Year;
-//    private int EmployeeID;
-//    private int BaseSalary;
-//    private int Bonus;
-//    private int OvertimePay;
-//    private int PerformanceBasedPay;
-//    private int TotalPay;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         MonthColumn.setCellValueFactory(new PropertyValueFactory<Salary,String>("Month"));
@@ -67,14 +50,13 @@ public class SeeEmployeeSalaryDetailsController implements Initializable {
         PerformanceBasedPayColumn.setCellValueFactory(new PropertyValueFactory<Salary,Integer>("PerformanceBasedPay"));
         TotalColumn.setCellValueFactory(new PropertyValueFactory<Salary,Integer>("TotalPay"));
 
-        // TODO
     }    
 
 
     @FXML
     private void SeeSalaryDetailsOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeIDTextField.getText());
-        if (Employee.CheckAccountExistence(id) == false) {
+        if (Account.CheckEmployeeAccountExistence(id) == false) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");

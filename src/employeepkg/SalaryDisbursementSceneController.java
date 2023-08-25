@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import mainpkg.Account;
 
 
 public class SalaryDisbursementSceneController implements Initializable {
@@ -63,7 +64,7 @@ public class SalaryDisbursementSceneController implements Initializable {
     @FXML
     private void PaySalaryOnClick(MouseEvent event) {
         int id = Integer.parseInt(employeeTextField.getText());
-        if (!Employee.CheckAccountExistence(id)) {
+        if (!Account.CheckEmployeeAccountExistence(id)) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");

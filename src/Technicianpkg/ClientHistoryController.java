@@ -47,7 +47,7 @@ public class ClientHistoryController implements Initializable, Serializable {
         String issue = issuesCombobox.getValue();
         
         if(Account.CheckCustomerAccountExistence(id)){
-            Customer c = Account.getInstance(id);
+            Customer c = Account.getCustomerInstance(id);
             Technician.AddClientHistory(id, c.getName(),lastservicing, issue);
             
         showAddedTextarea.setText("Client History \n");
