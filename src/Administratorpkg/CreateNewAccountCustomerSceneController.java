@@ -20,14 +20,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
+//import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import mainpkg.Account;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
 public class CreateNewAccountCustomerSceneController implements Initializable {
 
     @FXML
@@ -53,13 +49,7 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
 
     @FXML
     private void CreateNewAccountButtonOnClick(MouseEvent event) {
-//        private String Name;
-//        private String Address;
-//        private String ContactNumber;
-//        private String Email;
-//        private LocalDate DateOfBirth;
-//        private LocalDate DateOfJoining;
-//        private String Password;
+
             String name = nameTextField.getText();
             String address = addressTextField.getText();
             String contactNumber = contactNumberTextField.getText();
@@ -67,7 +57,7 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
             LocalDate DOB = DateOfBirthDatePicker.getValue();
             LocalDate DOJ = LocalDate.now();
             String password = passwordTextField.getText();
-            int customerID = Customer.GenerateCustomerID();
+            int customerID = Account.GenerateCustomerID();
             if(Customer.CheckAccountExistence(email)) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setTitle("Information Alert");
@@ -89,13 +79,6 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
 
     }
 
-//    private void BackbuttonOnClick(MouseEvent event) throws IOException {
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
 
     @FXML
     private void BackbuttonOnClick(ActionEvent event) throws IOException {
