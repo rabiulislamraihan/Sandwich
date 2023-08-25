@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
@@ -42,7 +43,7 @@ public class CustomerLoginPageController implements Initializable {
     private void LoginButtonOnClick(MouseEvent event) throws IOException {
         int id = Integer.parseInt(customerIDTextField.getText());
         String password = PasswordTextField.getText();
-        if(!Customer.CheckAccountExistence(id)) {
+        if(!Account.CheckCustomerAccountExistence(id)) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");

@@ -43,4 +43,31 @@ public interface Account {
         return id;
     }
     
+    
+    public static boolean CheckCustomerAccountExistence(int CustomerID) {
+        ObjectInputStream ois = null;
+        boolean result = false;
+        try {
+             Customer c;
+             ois = new ObjectInputStream(new FileInputStream("Customer.bin"));
+             
+            while(true){
+                c = (Customer) ois.readObject();
+                if(c.getCustomerID() == CustomerID) {
+                    result = true;
+                }
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return result;
+    }
+    
 }

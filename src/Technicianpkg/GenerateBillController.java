@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
@@ -70,7 +71,7 @@ public class GenerateBillController implements Initializable {
         String name = null;
         String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         int id = Integer.parseInt(idOfClientTextfield.getText());
-        if(Customer.CheckAccountExistence(id)){
+        if(Account.CheckCustomerAccountExistence(id)){
             Customer c = Customer.getInstance(id);
             nameOfClientLabel.setText(c.getName());
             name = c.getName();

@@ -17,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
@@ -56,7 +57,7 @@ public class ClientHistoryController implements Initializable, Serializable {
         LocalDate lastservicing = lastServicingDatePicker.getValue();
         String issue = issuesCombobox.getValue();
         
-        if(Customer.CheckAccountExistence(id)){
+        if(Account.CheckCustomerAccountExistence(id)){
             Customer c = Customer.getInstance(id);
             Technician.AddClientHistory(id, c.getName(),lastservicing, issue);
             
@@ -85,13 +86,9 @@ public class ClientHistoryController implements Initializable, Serializable {
     private void lookupClientHistory(ActionEvent event) {
         
         int lookupID = Integer.parseInt(searchClientIDTextfield.getText());
-         if(Customer.CheckAccountExistence(lookupID)){
+         if(Account.CheckCustomerAccountExistence(lookupID)){
              String data = Technician.LookupClientHistory(lookupID);
              showLookupTextarea.appendText(data);
          }
-        
-         
-        
     }
-    
 }
