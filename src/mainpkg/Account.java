@@ -70,4 +70,86 @@ public interface Account {
         return result;
     }
     
+    public static boolean CheckCustomerAccountExistence(String Email) {
+        ObjectInputStream ois = null;
+        boolean result = false;
+        try {
+             Customer c;
+             ois = new ObjectInputStream(new FileInputStream("Customer.bin"));
+             
+            while(true){
+                c = (Customer) ois.readObject();
+                if(c.getEmail().equals(Email)) {
+                    result = true;
+                }
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return result;
+    }
+    
+    
+    public static boolean CustomerpasswordMatch(int CustomerID, String Password) {
+        ObjectInputStream ois = null;
+        boolean result = false;
+        try {
+             Customer c;
+             ois = new ObjectInputStream(new FileInputStream("Customer.bin"));
+             
+            while(true){
+                c = (Customer) ois.readObject();
+                if(c.getCustomerID() == CustomerID) {
+                    if(c.getPassword().equals(Password)) {
+                        result = true;
+                    }
+                }
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return result;
+    }
+    
+    
+    public static Customer getInstance(int CustomerID) {
+        ObjectInputStream ois = null;
+        Customer oc = null;
+        try {
+             Customer c;
+             ois = new ObjectInputStream(new FileInputStream("Customer.bin"));
+             
+            while(true){
+                c = (Customer) ois.readObject();
+                if(c.getCustomerID() == CustomerID) {
+                    oc = c;
+                }
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return oc;
+    }
+    
 }

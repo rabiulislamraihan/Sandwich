@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Technicianpkg;
 
 import customerpkg.Customer;
@@ -19,11 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import mainpkg.Account;
 
-/**
- * FXML Controller class
- *
- * @author Hp
- */
+
 public class GenerateBillController implements Initializable {
 
     private TextField nameOfClientTextfield;
@@ -46,23 +39,16 @@ public class GenerateBillController implements Initializable {
     @FXML
     private TextField idOfClientTextfield;
 
-    /**
-     * Initializes the controller class.
-     */
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         discountCombobox.getItems().addAll(5, 10, 15);
         
     }    
 
     @FXML
     private void pdfButtonOnClick(ActionEvent event) {
-        
-        
         Technician.generatePDF(BillTextArea.getText());
-        
-        
     }
 
     @FXML
@@ -72,7 +58,7 @@ public class GenerateBillController implements Initializable {
         String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         int id = Integer.parseInt(idOfClientTextfield.getText());
         if(Account.CheckCustomerAccountExistence(id)){
-            Customer c = Customer.getInstance(id);
+            Customer c = Account.getInstance(id);
             nameOfClientLabel.setText(c.getName());
             name = c.getName();
         }

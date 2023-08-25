@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package customerpkg;
 
 import java.io.IOException;
@@ -19,11 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import mainpkg.Account;
 
-/**
- * FXML Controller class
- *
- * @author raiha
- */
+
 public class CustomerLoginPageController implements Initializable {
 
     @FXML
@@ -31,12 +24,8 @@ public class CustomerLoginPageController implements Initializable {
     @FXML
     private TextField PasswordTextField;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML
@@ -51,7 +40,7 @@ public class CustomerLoginPageController implements Initializable {
             a.showAndWait();
             return;
         }
-        if(!Customer.passwordMatch(id, password)) {
+        if(!Account.CustomerpasswordMatch(id, password)) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Information Alert");
             a.setHeaderText("Alert");
@@ -59,7 +48,7 @@ public class CustomerLoginPageController implements Initializable {
             a.showAndWait();
             return;
         }
-        Customer c = Customer.getInstance(id);
+        Customer c = Account.getInstance(id);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/customerpkg/CustomerHomePageScene.fxml"));
         Parent root = loader.load();

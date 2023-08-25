@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Technicianpkg;
 
 import customerpkg.Customer;
@@ -19,11 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import mainpkg.Account;
 
-/**
- * FXML Controller class
- *
- * @author Hp
- */
+
 public class ClientHistoryController implements Initializable, Serializable {
 
 
@@ -40,12 +33,8 @@ public class ClientHistoryController implements Initializable, Serializable {
     @FXML
     private ComboBox<String> issuesCombobox;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         issuesCombobox.getItems().addAll("Signal Amplification", "Setup Maintenance");
         
     }    
@@ -58,7 +47,7 @@ public class ClientHistoryController implements Initializable, Serializable {
         String issue = issuesCombobox.getValue();
         
         if(Account.CheckCustomerAccountExistence(id)){
-            Customer c = Customer.getInstance(id);
+            Customer c = Account.getInstance(id);
             Technician.AddClientHistory(id, c.getName(),lastservicing, issue);
             
         showAddedTextarea.setText("Client History \n");

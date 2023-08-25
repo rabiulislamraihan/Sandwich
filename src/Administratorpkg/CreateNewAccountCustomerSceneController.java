@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package Administratorpkg;
 
 import customerpkg.Customer;
@@ -20,7 +17,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-//import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import mainpkg.Account;
 
@@ -39,12 +35,8 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
     @FXML
     private TextField passwordTextField;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML
@@ -58,7 +50,7 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
             LocalDate DOJ = LocalDate.now();
             String password = passwordTextField.getText();
             int customerID = Account.GenerateCustomerID();
-            if(Customer.CheckAccountExistence(email)) {
+            if(Account.CheckCustomerAccountExistence(email)) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setTitle("Information Alert");
                 a.setHeaderText("Alert");
@@ -67,7 +59,7 @@ public class CreateNewAccountCustomerSceneController implements Initializable {
             }
             else {
                 Customer c = new Customer(customerID, name, address, contactNumber, email, DOB, password);
-                Customer.CreateNewAccount(c);
+                Administrator.CustomerCreateNewAccount(c);
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setTitle("Information Alert");
                 a.setHeaderText("Alert");
