@@ -99,6 +99,11 @@ public class IncomeStatementController implements Initializable {
 
     @FXML
     private void calculateNetLossButton(MouseEvent event) {
+        double revenue = Double.parseDouble(revenueTextfield.getText());
+        double expenses = Double.parseDouble(expensesLabel.getText());
+        double netLoss = IncomeStatement.calculateNetLoss(revenue, expenses);
+
+        netProfitLabel.setText(String.valueOf(netLoss));
         
     }
     

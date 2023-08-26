@@ -31,7 +31,7 @@ public class ViewCustomerListSceneController implements Initializable {
     private TableColumn<Customer, LocalDate> joiningDateColumn;
     @FXML
     private TableColumn<Customer, String> passwordOnClick;
-
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         customerIDColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("customerID"));
@@ -40,7 +40,7 @@ public class ViewCustomerListSceneController implements Initializable {
         emailColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("Email"));
         joiningDateColumn.setCellValueFactory(new PropertyValueFactory<Customer,LocalDate>("DateOfJoining"));
         passwordOnClick.setCellValueFactory(new PropertyValueFactory<Customer, String>("Password"));
-
+//        dateColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate().toString()));     
         tableView.getItems().addAll(Administrator.getCustomerList());
     }    
     

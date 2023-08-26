@@ -71,15 +71,10 @@ public class AccountManagerHomePageSceneController implements Initializable {
         BorderPane.setCenter(root);
     }
 
-    private void cashFlowStatementButton(ActionEvent event) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CashFlowStatement.fxml"));
-        Parent root = loader.load();
-        BorderPane.setCenter(root);
-    }
 
     @FXML
     private void budgetAndPerformanceButton(ActionEvent event) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("BudgetingAndForecasting.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BudgetAndPerformance.fxml"));
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }
@@ -91,18 +86,5 @@ public class AccountManagerHomePageSceneController implements Initializable {
         BorderPane.setCenter(root);
     }
 
-    @FXML
-    private void sendNotificationsMenuItem(ActionEvent event) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("SendNotification.fxml"));
-        Parent root = loader.load();
-        BorderPane.setCenter(root);
-    }
-
-    @FXML
-    private void billConflictResolutionMenuItem(ActionEvent event) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("BillConflictResolution.fxml"));
-        Parent root = loader.load();
-        BorderPane.setCenter(root);
-    }
     
 }

@@ -4,11 +4,13 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.VisualizeVarianceController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.VisualizeVarianceController">
    <children>
-      <BarChart fx:id="barChart" layoutX="93.0" layoutY="60.0" prefHeight="302.0" prefWidth="414.0">
+      <BarChart fx:id="visualizeBarChart" layoutX="67.0" layoutY="130.0" prefHeight="467.0" prefWidth="759.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="xaxis" />
         </xAxis>
@@ -16,6 +18,8 @@
           <NumberAxis fx:id="numberaxis" side="LEFT" />
         </yAxis>
       </BarChart>
-      <Button layoutX="67.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#buttononclick" text="Button" />
+      <Label layoutX="93.0" layoutY="42.0" text="Select Data Type:" />
+      <ComboBox fx:id="selectTypeCombobox" layoutX="223.0" layoutY="38.0" prefWidth="150.0" />
+      <Button layoutX="580.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#showChartButtonOnClick" prefHeight="25.0" prefWidth="165.0" text="Show Chart" />
    </children>
 </AnchorPane>

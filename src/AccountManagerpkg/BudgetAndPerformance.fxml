@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.BudgetingAndForecastingController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.BudgetAndPerformanceController">
    <children>
-      <Label layoutX="70.0" layoutY="72.0" text="Create Budget:" />
+      <Label layoutX="70.0" layoutY="72.0" text="Enter Budget:" />
       <Label layoutX="59.0" layoutY="110.0" text="Projected Revenue:" />
       <TextField fx:id="budgetTextField" layoutX="216.0" layoutY="68.0" />
       <TextField fx:id="projectedRevenueTextField" layoutX="216.0" layoutY="106.0" />
-      <Label layoutX="539.0" layoutY="72.0" prefHeight="17.0" prefWidth="88.0" text="Actual Revenue:" />
-      <TextField fx:id="actualRevenueTextField" layoutX="662.0" layoutY="68.0" />
+      <Label layoutX="495.0" layoutY="60.0" prefHeight="17.0" prefWidth="88.0" text="Actual Revenue:" />
+      <TextField fx:id="actualRevenueTextField" layoutX="605.0" layoutY="60.0" />
       <TableView fx:id="budgetDataTable" layoutX="14.0" layoutY="261.0" prefHeight="356.0" prefWidth="427.0">
         <columns>
             <TableColumn fx:id="budgetMonthColumn" prefWidth="91.33334350585938" text="Month" />
@@ -30,16 +30,14 @@
       <Button layoutX="56.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#addBudgetDataButtonOnClick" prefHeight="25.0" prefWidth="150.0" text="Add Data" />
       <Button layoutX="265.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#viewBudgetDataButtonOnClick" prefHeight="25.0" prefWidth="149.0" text="View Data" />
       <Label layoutX="56.0" layoutY="149.0" text="Projected Expenses: " />
-      <TextField fx:id="projectedRevenueTextField" layoutX="216.0" layoutY="145.0" />
+      <TextField fx:id="projectedExpensesTextField" layoutX="216.0" layoutY="145.0" />
       <Line endX="-100.0" endY="560.3333129882812" layoutX="557.0" layoutY="55.0" startX="-100.0" startY="-35.0" />
-      <Label layoutX="538.0" layoutY="32.0" text="Select Month:" />
-      <ComboBox fx:id="selectMonthToSeePerformanceCombonox" layoutX="662.0" layoutY="37.0" prefWidth="150.0" />
-      <Label layoutX="539.0" layoutY="149.0" text="Actual Expenses:" />
-      <Label layoutX="540.0" layoutY="110.0" text="Revenue Variance:" />
-      <Label layoutX="539.0" layoutY="187.0" text="Expenses Variance:" />
-      <TextField fx:id="actualExpensesTextField" layoutX="662.0" layoutY="145.0" />
-      <TextField fx:id="revenueVarianceTextField" layoutX="662.0" layoutY="106.0" />
-      <TextField fx:id="expensesVarianceTextField" layoutX="662.0" layoutY="183.0" />
+      <Label layoutX="495.0" layoutY="23.0" text="Select Month:" />
+      <ComboBox fx:id="selectMonthToSeePerformanceCombonox" layoutX="605.0" layoutY="19.0" prefWidth="150.0" />
+      <Label layoutX="495.0" layoutY="149.0" text="Actual Expenses:" />
+      <Label layoutX="491.0" layoutY="98.0" text="Revenue Variance:" />
+      <Label layoutX="490.0" layoutY="187.0" text="Expenses Variance:" />
+      <TextField fx:id="actualExpensesTextField" layoutX="606.0" layoutY="145.0" />
       <TableView fx:id="performanceDataTable" layoutX="472.0" layoutY="261.0" prefHeight="356.0" prefWidth="414.0">
          <columns>
             <TableColumn fx:id="performanceMonthColumn" prefWidth="114.0" text="Month" />
@@ -49,5 +47,9 @@
       </TableView>
       <Button layoutX="500.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#addPerformanceDataButtonOnClick" prefHeight="25.0" prefWidth="150.0" text="Add Data" />
       <Button layoutX="701.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#viewPerformanceDataButtonOnClick" prefHeight="25.0" prefWidth="149.0" text="View Data" />
+      <Button layoutX="770.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#calculateRevenueVarianceButtonOnClick" prefHeight="44.0" prefWidth="116.0" text="Calculate Revenue Variance" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="770.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#calculateExpensesVarianceButtonOnClick" prefHeight="44.0" prefWidth="116.0" text="Calculate Expenses Variance" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="revenueVarianceLabel" layoutX="605.0" layoutY="98.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label fx:id="expensesVarianceLabel" layoutX="606.0" layoutY="183.0" prefHeight="25.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

@@ -87,11 +87,11 @@ public class BalanceSheetController implements Initializable {
 
         try{
             
-            FinancialMatrices m;
-            ois = new ObjectInputStream(new FileInputStream("FinancialMatrices.bin"));
+            BalanceSheetData m;
+            ois = new ObjectInputStream(new FileInputStream("BalanceSheetData.bin"));
             
             while(true){
-                m = (FinancialMatrices) ois.readObject();
+                m = (BalanceSheetData) ois.readObject();
                 monthList.add(m.getMonth());
             }
         }

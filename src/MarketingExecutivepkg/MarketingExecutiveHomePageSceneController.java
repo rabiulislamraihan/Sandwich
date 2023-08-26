@@ -40,4 +40,34 @@ public class MarketingExecutiveHomePageSceneController implements Initializable 
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void viewUpdateBrandVisionAndGuidelinesOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BrandVisionAndGuidelines.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void CreateCampaignOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DesignMarketingCampaign.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+        
+    }
+
+    @FXML
+    private void campaignReportOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CampaignReport.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+            
+    }
+
+    @FXML
+    private void campaignPerformanceOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CampaignPerformanceChart.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
 }

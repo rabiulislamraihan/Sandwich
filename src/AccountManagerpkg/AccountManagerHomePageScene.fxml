@@ -34,12 +34,6 @@
                   <MenuItem mnemonicParsing="false" onAction="#SeeEmployeeSalaryDetails" text="See Employee Salary Details" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Customer Bill Management">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#sendNotificationsMenuItem" text="Send Notifications" />
-                  <MenuItem mnemonicParsing="false" onAction="#billConflictResolutionMenuItem" text="Bill Conflict Resolution" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />
