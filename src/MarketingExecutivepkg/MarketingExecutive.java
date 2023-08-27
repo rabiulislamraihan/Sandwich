@@ -252,7 +252,6 @@ public class MarketingExecutive implements Serializable{
 
     }
    
-   
    public static ObservableList<CampaignReport> getCampaignReportList() {
        ObservableList<CampaignReport> list = FXCollections.observableArrayList();
        ObjectInputStream ois = null;
@@ -274,6 +273,11 @@ public class MarketingExecutive implements Serializable{
             } catch (IOException ex1) {  }           
         }
         return list;
+        
+        
    }
+   
+   
+         
          
 }

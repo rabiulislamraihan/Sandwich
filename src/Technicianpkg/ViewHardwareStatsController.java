@@ -12,9 +12,13 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -26,6 +30,10 @@ public class ViewHardwareStatsController implements Initializable {
     @FXML
     private PieChart piechart;
     private ObservableList <PieChart.Data> list = FXCollections.observableArrayList();
+    @FXML
+    private Label viewDetailsLabel;
+    @FXML
+    private TextArea stockPriceTextarea;
     /**
      * Initializes the controller class.
      */
@@ -45,6 +53,7 @@ public class ViewHardwareStatsController implements Initializable {
             
             while(true){
                 h = (Hardware) ois.readObject();
+                stockPriceTextarea.appendText("Total stock price of "+h.getName() +" is "+h.HardwareStockPrice(h.getUnitsRemaining(),h.getUnitCost()) + "\n");
                 list.add(new PieChart.Data(h.name, h.unitsRemaining));
 
             }
@@ -65,6 +74,22 @@ public class ViewHardwareStatsController implements Initializable {
         
         
         piechart.setData(list);
+        
+            for(PieChart.Data data: piechart.getData()){
+            data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, 
+                    new EventHandler<MouseEvent>(){
+                @Override
+                public void handle(MouseEvent event) {
+                    viewDetailsLabel.setText("Units Remaining "+String.valueOf(data.getPieValue()));
+                }
+            }
+            );
+            
+        }
+        
+        
+        
+        
     }
     
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="AccountManagerpkg.ExpensesPieChartController">
+   <children>
+      <PieChart fx:id="expensesPieChart" layoutX="200.0" layoutY="179.0" />
+      <Label layoutX="83.0" layoutY="50.0" text="Select Month:" />
+      <ComboBox fx:id="monthCombox" layoutX="186.0" layoutY="46.0" prefWidth="150.0" />
+      <Button layoutX="562.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#showChartButtonOnClick" prefHeight="25.0" prefWidth="138.0" text="Show Chart" />
+   </children>
+</AnchorPane>

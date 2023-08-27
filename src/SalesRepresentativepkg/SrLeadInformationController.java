@@ -1,6 +1,7 @@
 
 package SalesRepresentativepkg;
 
+import ContentManagerpkg.ContentManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -78,12 +79,54 @@ public class SrLeadInformationController implements Initializable {
 
     @FXML
     private void addLeadClicked(MouseEvent event) {
-
-
         String liLead =  liLeadName.getText();
         String liProject = liProjectName.getText();
         String liDur = liDuration.getText();
         LocalDate liStart = liStartDate.getValue();
+        int x = 0;
+        if("".equals(liLead)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be a Lead Name.");
+            a.showAndWait();
+            x=1;
+        }if("".equals(liProject)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be a Project Name.");
+            a.showAndWait();
+            x=1;
+        }if("".equals(liDur)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be a Duration.");
+            a.showAndWait();
+            x=1;
+        }if("".equals(liStart)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be a Start Date.");
+            a.showAndWait();
+            x=1;
+        }String[] s = liLead.split("\\s+");
+        int z=0;
+        for (int i=0; i<s.length; i++){
+        if(ContentManager.isAlpha(s[i])==false){
+            z=1;
+        }}if(z==1){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("The Name must consist of Only alphabets.");
+            a.showAndWait();
+            return;
+        }if(x==1){
+            return;
+        }
         TableData c = new TableData(liLead, liProject, liStart, liDur);
 
         File f = null;

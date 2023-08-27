@@ -65,5 +65,29 @@ public class ContentManagerHomePageSceneController implements Initializable {
         Parent parent = FXMLLoader.load(getClass().getResource("DeleteContent.fxml"));
         BorderPane.setCenter(parent);
     }
+
+    @FXML
+    private void customerAnalyticsOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("CustomerAnalytics.fxml"));
+        BorderPane.setCenter(parent);
+    }
+
+    @FXML
+    private void customerInformationsOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("CustomerInformations.fxml"));
+        BorderPane.setCenter(parent);
+    }
+
+    @FXML
+    private void feedbackOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("CustomerFeedback.fxml"));
+        BorderPane.setCenter(parent);
+    }
+
+    @FXML
+    private void agreementOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("Agreement.fxml"));
+        BorderPane.setCenter(parent);
+    }
     
 }

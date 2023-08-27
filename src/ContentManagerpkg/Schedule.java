@@ -20,21 +20,22 @@ import mainpkg.AppendableObjectOutputStream;
  *
  * @author anika
  */
-class Schedule implements Serializable{
-    String name;
-    String details;
+public class Schedule implements Serializable{
+    public String name;
+    public String details;
+    public String genre;
     
-    public Schedule(String name, String details){
+    public Schedule(String name, String details, String genre){
         this.name = name;
         this.details = details;
+        this.genre = genre;
     }
 
     @Override
     public String toString() {
-        return "Schedule{" + "name=" + name + ", details=" + details + '}';
+        return "Schedule{" + "name=" + name + ", details=" + details + ", genre=" + genre + '}';
     }
-    
-    
+
     static void deleteContent(String s) {
         ArrayList <Schedule> contentList = new ArrayList<>();
         ObjectInputStream ois = null;

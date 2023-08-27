@@ -20,13 +20,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
  *
  * @author Hp
  */
-public class ViewAppointmentsController implements Initializable, Serializable {
+public class ViewAppointmentsController implements Initializable, Account, Serializable {
 
     @FXML
     private TableView<Appointment> tableview;

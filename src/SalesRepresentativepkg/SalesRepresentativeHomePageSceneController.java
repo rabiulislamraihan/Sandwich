@@ -48,9 +48,6 @@ public class SalesRepresentativeHomePageSceneController implements Initializable
         BorderPane.setCenter(parent);
     }
 
-    @FXML
-    private void srProductPresentationOnClick(ActionEvent event) {
-    }
 
     @FXML
     private void srPricingOnClick(ActionEvent event) throws IOException {
@@ -81,6 +78,20 @@ public class SalesRepresentativeHomePageSceneController implements Initializable
     @FXML
     private void DeletePackageOnClick(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("DeletePackage.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void feedbackOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerFeedback.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void customerInformationOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerSalesInfo.fxml"));
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }

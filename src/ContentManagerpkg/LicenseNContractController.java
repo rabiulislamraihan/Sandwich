@@ -4,8 +4,7 @@
  */
 package ContentManagerpkg;
 
-import SalesRepresentativepkg.TableData;
-import customerpkg.Customer;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,10 +12,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Platform.exit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -102,10 +101,56 @@ public class LicenseNContractController implements Initializable {
 
     @FXML
     private void addLicenseOnClick(MouseEvent event) {
+        int x=0;
         String title = licenseTitleT.getText();
         String name = nameT.getText();
         String status = activeStatusCB.getValue();
         String description = licenseDescription.getText();
+        if ("".equals(description)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be Description.");
+            a.showAndWait();
+            x=1;
+        }if ("".equals(title)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be Title.");
+            a.showAndWait();
+            x=1;
+        }if ("".equals(status)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be Status.");
+            a.showAndWait();
+            x=1;
+        }if ("".equals(name)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be Name.");
+            a.showAndWait();
+            x=1;
+        }
+        if (x==1){
+            return;
+        }
+        String[] s = name.split("\\s+");
+        int z=0;
+        for (int i=0; i<s.length; i++){
+        if(ContentManager.isAlpha(s[i])==false){
+            z=1;
+        }}if(z==1){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("The Name must consist of Only alphabets.");
+            a.showAndWait();
+            return;
+        }
         License c = new License(title, name, status, description);
 
         File f = null;
@@ -147,6 +192,14 @@ public class LicenseNContractController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LicenseDetails.fxml"));
         Parent root = loader.load();
         License p = tableView.getSelectionModel().getSelectedItem();
+        if (p==null){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("You must select ONE License to view it's description.");
+            a.showAndWait();
+            return;
+        }
         LicenseDetailsController ctrl = loader.getController();
         ctrl.data(p);
         Scene scene = new Scene(root);

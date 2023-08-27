@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -33,12 +34,16 @@ public class ContentScheduleController implements Initializable {
     private TextArea contentDetailsView;
     @FXML
     private ComboBox<String> contentNameCB;
+    @FXML
+    private ComboBox<String> genre;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        genre.getItems().addAll("Comedy", "Horror", "Romance","Thriller", "Sci-fi");
+                
         // TODO
         ObjectInputStream ois = null;
         try{
@@ -70,7 +75,26 @@ public class ContentScheduleController implements Initializable {
     private void saveScheduleOnClick(MouseEvent event) {
         String name = contentName.getText();
         String details = contentDetails.getText();
-        ContentManager.CreateSchedule(name, details);
+        String gen = genre.getValue();
+        int x=0;
+        if ("".equals(name)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be a Content Name.");
+            a.showAndWait();
+            x=1;
+        }if ("".equals(details)){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Information Alert");
+            a.setHeaderText("Alert");
+            a.setContentText("There must be some Content details ");
+            a.showAndWait();
+            x=1;
+        }if(x==1){
+            return;
+        }
+        ContentManager.CreateSchedule(name, details, gen);
         contentNameCB.getItems().addAll(name);
     }
 
@@ -78,7 +102,7 @@ public class ContentScheduleController implements Initializable {
     private void viewScheduleOnClick(MouseEvent event) throws IOException {
         contentDetailsView.setText("");
         String findName = contentNameCB.getValue();
-        String Data = ContentManager.SearchReport(findName);
+        String Data = ContentManager.SearchSchedule(findName);
         contentDetailsView.setText(Data);
     }
     

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ContentManagerpkg.CustomerFeedbackController">
+   <children>
+      <Label layoutX="102.0" layoutY="83.0" text="Choose Content to see it's feedback:" />
+      <Label layoutX="102.0" layoutY="220.0" text="Feedback Provided:" />
+      <ComboBox fx:id="fdContentcb" layoutX="137.0" layoutY="119.0" prefHeight="43.0" prefWidth="291.0" />
+      <TextArea fx:id="showFeedback" editable="false" layoutX="137.0" layoutY="262.0" prefHeight="259.0" prefWidth="626.0" />
+      <Button layoutX="625.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#loadFeedback" prefHeight="77.0" prefWidth="167.0" text="Load Feedback" />
+   </children>
+</AnchorPane>

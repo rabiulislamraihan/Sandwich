@@ -22,7 +22,6 @@ public class Hardware implements Serializable{
         this.unitsRemaining = unitsRemaining;
     }
     
-
     public String getName() {
         return name;
     }
@@ -47,5 +46,9 @@ public class Hardware implements Serializable{
         this.unitsRemaining = unitsRemaining;
     }
     
+    
+    public static int HardwareStockPrice(int unitsRemaining, int unitCost){
+        return (unitsRemaining*unitCost);
+    }
 
 }

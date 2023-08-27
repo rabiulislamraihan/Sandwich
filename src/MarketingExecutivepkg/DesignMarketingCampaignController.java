@@ -1,6 +1,7 @@
 
 package MarketingExecutivepkg;
 
+import AccountManagerpkg.BudgetAndPerformance;
 import AccountManagerpkg.IncomeStatement;
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import mainpkg.PDFGenerator;
 
 
 public class DesignMarketingCampaignController implements Initializable {
@@ -108,6 +110,10 @@ public class DesignMarketingCampaignController implements Initializable {
 
     @FXML
     private void downloadCampaignDetailsButtonOnClick(MouseEvent event) {
+        DesignCampaign b = campaignTable.getSelectionModel().getSelectedItem();
+        
+        PDFGenerator.generatePdf(b.toString());
+    
     }
 
     @FXML

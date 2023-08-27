@@ -8,7 +8,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.VisualizeVarianceController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.VisualizeBudgetAndPerformanceController">
    <children>
       <BarChart fx:id="visualizeBarChart" layoutX="67.0" layoutY="130.0" prefHeight="467.0" prefWidth="759.0">
         <xAxis>

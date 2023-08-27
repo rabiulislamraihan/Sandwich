@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import mainpkg.Account;
 
 
-public class GenerateBillController implements Initializable {
+public class GenerateBillController implements Account, Initializable {
 
     private TextField nameOfClientTextfield;
     @FXML
@@ -42,7 +42,7 @@ public class GenerateBillController implements Initializable {
  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        discountCombobox.getItems().addAll(5, 10, 15);
+        discountCombobox.getItems().addAll(25, 50, 100);
         
     }    
 
@@ -54,7 +54,7 @@ public class GenerateBillController implements Initializable {
     @FXML
     private void calculateOnClick(ActionEvent event) {
         
-        String name = null;
+        String name = "";
         String timeStamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
         int id = Integer.parseInt(idOfClientTextfield.getText());
         if(Account.CheckCustomerAccountExistence(id)){

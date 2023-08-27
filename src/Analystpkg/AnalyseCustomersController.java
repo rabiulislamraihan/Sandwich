@@ -18,13 +18,14 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
  *
  * @author Hp
  */
-public class AnalyseCustomersController implements Initializable {
+public class AnalyseCustomersController implements Account, Initializable {
 
     @FXML
     private BarChart<String, Number> barcharrt;
@@ -91,10 +92,7 @@ public class AnalyseCustomersController implements Initializable {
         AgeRange.setLabel("Age Range of Customers");
         NoOfCustomers.setLabel("No. of Customers");
        
-        
     }
-        
-       
         
     }    
     

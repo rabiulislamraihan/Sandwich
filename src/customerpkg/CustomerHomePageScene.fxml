@@ -24,6 +24,8 @@
             <Menu mnemonicParsing="false" text="Survey">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#answerSurveysOnClick" text="Answer Survey" />
+                  <MenuItem mnemonicParsing="false" onAction="#contentFeedbackOnClick" text="Content Feedback" />
+                  <MenuItem mnemonicParsing="false" onAction="#packageFeedbackOnClick" text="Package Feedback" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help Line">

@@ -53,6 +53,7 @@ public class CampaignReportController implements Initializable {
     private TableColumn<CampaignReport, Integer> clicksColumn;
     @FXML
     private TableColumn<CampaignReport, Integer> actionsColumn;
+    
     ObservableList <DesignCampaign> list;
 
 

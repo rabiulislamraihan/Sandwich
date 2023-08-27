@@ -10,24 +10,24 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MarketingExecutivepkg.CampaignReportController">
    <children>
-      <Label layoutX="66.0" layoutY="40.0" text="Select Campaign:" />
-      <Label layoutX="66.0" layoutY="83.0" prefHeight="17.0" prefWidth="105.0" text="Total Impressions:" />
-      <Label layoutX="66.0" layoutY="134.0" text="Total Engagements:" />
-      <Label layoutX="66.0" layoutY="172.0" text="Total Clicks:" />
-      <Label layoutX="64.0" layoutY="214.0" text="Total Action:" />
-      <Button layoutX="472.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#showCTRButton" prefHeight="25.0" prefWidth="158.0" text="Show Click Through Rate :" />
-      <Button layoutX="472.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#showConversionRateButton" prefHeight="25.0" prefWidth="158.0" text="Show Conversion Rate :" />
-      <Button layoutX="472.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#showEngagementRateButton" prefHeight="25.0" prefWidth="158.0" text="Show Engagement Rate :" />
-      <ComboBox fx:id="selectCampaignCombobox" layoutX="195.0" layoutY="36.0" prefWidth="150.0" />
-      <TextField fx:id="totalImpressionsTextfield" layoutX="196.0" layoutY="79.0" />
-      <TextField fx:id="totalEngagementTexfield" layoutX="196.0" layoutY="122.0" />
-      <TextField fx:id="totalClicksTextfield" layoutX="196.0" layoutY="168.0" />
-      <TextField fx:id="totalActionsTextfield" layoutX="196.0" layoutY="210.0" />
-      <Label fx:id="engagementRateLabel" layoutX="680.0" layoutY="122.0" prefHeight="25.0" prefWidth="158.0" />
-      <Label fx:id="CTRLabel" layoutX="680.0" layoutY="202.0" prefHeight="25.0" prefWidth="158.0" />
-      <Label fx:id="conversionRateLabel" layoutX="680.0" layoutY="49.0" prefHeight="25.0" prefWidth="158.0" />
-      <Button layoutX="335.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#addButton" prefHeight="25.0" prefWidth="92.0" text="Add" />
-      <TableView fx:id="reportTable" layoutX="16.0" layoutY="305.0" prefHeight="315.0" prefWidth="870.0">
+      <Label layoutX="60.0" layoutY="32.0" text="Select Campaign:" />
+      <Label layoutX="60.0" layoutY="75.0" prefHeight="17.0" prefWidth="105.0" text="Total Impressions:" />
+      <Label layoutX="60.0" layoutY="114.0" text="Total Engagements:" />
+      <Label layoutX="66.0" layoutY="155.0" text="Total Clicks:" />
+      <Label layoutX="64.0" layoutY="194.0" text="Total Action:" />
+      <Button layoutX="472.0" layoutY="182.0" mnemonicParsing="false" onMouseClicked="#showCTRButton" prefHeight="25.0" prefWidth="158.0" text="Show Click Through Rate :" />
+      <Button layoutX="472.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#showConversionRateButton" prefHeight="25.0" prefWidth="158.0" text="Show Conversion Rate :" />
+      <Button layoutX="472.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#showEngagementRateButton" prefHeight="25.0" prefWidth="158.0" text="Show Engagement Rate :" />
+      <ComboBox fx:id="selectCampaignCombobox" layoutX="196.0" layoutY="28.0" prefWidth="150.0" />
+      <TextField fx:id="totalImpressionsTextfield" layoutX="196.0" layoutY="71.0" />
+      <TextField fx:id="totalEngagementTexfield" layoutX="196.0" layoutY="110.0" />
+      <TextField fx:id="totalClicksTextfield" layoutX="196.0" layoutY="151.0" />
+      <TextField fx:id="totalActionsTextfield" layoutX="196.0" layoutY="190.0" />
+      <Label fx:id="engagementRateLabel" layoutX="680.0" layoutY="110.0" prefHeight="25.0" prefWidth="158.0" />
+      <Label fx:id="CTRLabel" layoutX="680.0" layoutY="182.0" prefHeight="25.0" prefWidth="158.0" />
+      <Label fx:id="conversionRateLabel" layoutX="680.0" layoutY="41.0" prefHeight="25.0" prefWidth="158.0" />
+      <Button layoutX="292.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#addButton" prefHeight="25.0" prefWidth="133.0" text="Add" />
+      <TableView fx:id="reportTable" layoutX="16.0" layoutY="295.0" prefHeight="315.0" prefWidth="870.0">
         <columns>
           <TableColumn fx:id="campaignNameColumn" prefWidth="183.66668701171875" text="Campaign Name" />
           <TableColumn fx:id="impressionsColumn" prefWidth="185.33331298828125" text="Total Impressions" />
@@ -36,6 +36,6 @@
             <TableColumn fx:id="actionsColumn" prefWidth="167.33331298828125" text=" Action" />
         </columns>
       </TableView>
-      <Button layoutX="451.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#viewButton" prefHeight="25.0" prefWidth="92.0" text="view" />
+      <Button layoutX="451.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#viewButton" prefHeight="25.0" prefWidth="133.0" text="view" />
    </children>
 </AnchorPane>

@@ -31,18 +31,15 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javax.swing.text.Document;
 import javax.swing.text.StyleConstants.FontConstants;
+import mainpkg.Account;
 import mainpkg.PDFGenerator;
-
-
-
-
 
 
 /**
  *
  * @author Hp
  */
-public class Technician extends Employee implements Serializable{
+public class Technician extends Employee implements Account, Serializable{
     
     
     public static void AddHardware(String name, int cost, int units){
@@ -102,7 +99,7 @@ public class Technician extends Employee implements Serializable{
             
             while(true){
                 h = (Hardware) ois.readObject();
-                if(h.name.equals(updateItem)){
+                if(h.getName().equals(updateItem)){
                     
                    if(updateCatagory.equals("Unit Price")){
                        h.setUnitCost(Integer.parseInt(newData)); 

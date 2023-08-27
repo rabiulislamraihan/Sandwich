@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import mainpkg.AccountInformationSceneController;
 
 
 public class CustomerHomePageSceneController implements Initializable {
@@ -32,22 +31,11 @@ public class CustomerHomePageSceneController implements Initializable {
     }    
 
     @FXML
-    private void ViewPersonalInformationOnClick(ActionEvent event) throws IOException {
-        Stage stage = (Stage) BorderPane.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpkg/AccountInformationScene.fxml"));
-        Parent root = loader.load();
-        AccountInformationSceneController ctrl = loader.getController();
-        ctrl.data(c, null);
-        
-        
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    private void ViewPersonalInformationOnClick(ActionEvent event) {
     }
 
     @FXML
     private void LogoutButtonOnClick(ActionEvent event) throws IOException {
-        
         Stage stage = (Stage) BorderPane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/mainpkg/SelectUserScene.fxml"));
         Scene scene = new Scene(root);
@@ -78,6 +66,18 @@ public class CustomerHomePageSceneController implements Initializable {
         BorderPane.setCenter(parent); 
         
         
+    }
+
+    @FXML
+    private void contentFeedbackOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("feedback.fxml"));
+        BorderPane.setCenter(parent); 
+    }
+
+    @FXML
+    private void packageFeedbackOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("PackageFeedback.fxml"));
+        BorderPane.setCenter(parent); 
     }
     
 }

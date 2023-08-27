@@ -7,20 +7,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ContentManagerpkg.ContentScheduleController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContentManagerpkg.ContentScheduleController">
    <children>
-      <Label layoutX="81.0" layoutY="105.0" text="Content Name:" />
-      <Label layoutX="81.0" layoutY="147.0" text="Content Details:" />
+      <Label layoutX="81.0" layoutY="132.0" text="Content Name:" />
+      <Label layoutX="79.0" layoutY="169.0" text="Content Details:" />
       <Label layoutX="534.0" layoutY="105.0" text="Content Name:" />
       <Label layoutX="532.0" layoutY="147.0" text="Content Details:" />
       <Label layoutX="81.0" layoutY="47.0" text="Schedule Content:" />
       <Label layoutX="534.0" layoutY="47.0" text="View Content Schedule:" />
-      <TextField fx:id="contentName" layoutX="202.0" layoutY="100.0" />
-      <TextArea fx:id="contentDetails" layoutX="80.0" layoutY="179.0" prefHeight="320.0" prefWidth="295.0" />
+      <TextField fx:id="contentName" layoutX="202.0" layoutY="127.0" />
+      <TextArea fx:id="contentDetails" layoutX="80.0" layoutY="198.0" prefHeight="320.0" prefWidth="295.0" />
       <TextArea fx:id="contentDetailsView" layoutX="534.0" layoutY="179.0" prefHeight="320.0" prefWidth="289.0" />
       <ComboBox fx:id="contentNameCB" layoutX="649.0" layoutY="100.0" prefHeight="31.0" prefWidth="187.0" />
       <Button layoutX="170.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#saveScheduleOnClick" text="Save Schedule" />
       <Button layoutX="633.0" layoutY="543.0" mnemonicParsing="false" onMouseClicked="#viewScheduleOnClick" text="View Schedule" />
+      <Label layoutX="81.0" layoutY="90.0" text="Content Genre:" />
+      <ComboBox fx:id="genre" layoutX="202.0" layoutY="85.0" prefHeight="31.0" prefWidth="187.0" />
    </children>
 </AnchorPane>

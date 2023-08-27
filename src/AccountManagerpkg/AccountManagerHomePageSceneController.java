@@ -81,7 +81,23 @@ public class AccountManagerHomePageSceneController implements Initializable {
 
     @FXML
     private void visualizeVarianceButton(ActionEvent event) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("VisualizeVariance.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("VisualizeBudgetAndPerformance.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    }
+
+    @FXML
+    private void taxCalculationButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaxManagement.fxml"));
+        Parent root = loader.load();
+        BorderPane.setCenter(root);
+    
+        
+    }
+
+    @FXML
+    private void analyzeExpensesButton(ActionEvent event) throws IOException  {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ExpensesPieChart.fxml"));
         Parent root = loader.load();
         BorderPane.setCenter(root);
     }

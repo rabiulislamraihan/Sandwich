@@ -1,17 +1,21 @@
 
 package Analystpkg;
 
+import employeepkg.Employee;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mainpkg.Account;
 
-public interface Analyst {
+public class Analyst extends Employee implements Account, Serializable{
     
     public static ArrayList <Survey> GetSurveyList() {
         ArrayList <Survey> surveyList = new ArrayList<>();
@@ -64,5 +68,9 @@ public interface Analyst {
                 Logger.getLogger(SuveyStore.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public Analyst(int ID, String Name, String Address, String ContactNumber, String Email, LocalDate DateOfBirth, LocalDate DateOfJoining, String Password, String Designation) {
+        super(ID, Name, Address, ContactNumber, Email, DateOfBirth, DateOfJoining, Password, Designation);
     }
 }

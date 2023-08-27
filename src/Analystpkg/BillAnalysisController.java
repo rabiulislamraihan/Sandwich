@@ -62,6 +62,11 @@ public class BillAnalysisController implements Initializable {
             }
             catch (IOException ex1){ }
         }
+        
+        Users.setLabel("Clients");
+        TotalExpenditure.setLabel("Bill");
+        
+        barchart.setTitle("Bill Expenses");
         barchart.getData().add(series);
         
     }

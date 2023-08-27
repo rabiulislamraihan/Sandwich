@@ -89,7 +89,7 @@ public class DesignCampaign implements Serializable{
 
     @Override
     public String toString() {
-        return "DesignCampaign{" + "campaignName=" + campaignName + ", startDate=" + startDate + ", endDate=" + endDate + ", content=" + content + ", targetAudience=" + targetAudience + ", marketingMedia=" + marketingMedia + '}';
+        return "\nCampaign Name =" + campaignName + " \nStart Date =" + startDate + " \nEnd Date=" + endDate + " \nContent =" + content + " \nTarget Audience =" + targetAudience + " \nMarketing Media =" + marketingMedia + '}';
     }
     
     

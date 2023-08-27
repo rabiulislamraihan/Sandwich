@@ -21,13 +21,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import mainpkg.Account;
 
 /**
  * FXML Controller class
  *
  * @author Hp
  */
-public class NewSetupController implements Initializable {
+public class NewSetupController implements Account, Initializable {
 
     @FXML
     private TableColumn<Customer, Integer> idCol;
@@ -50,7 +51,7 @@ public class NewSetupController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         idCol.setCellValueFactory(new PropertyValueFactory <Customer, Integer> ("customerID"));
+         idCol.setCellValueFactory(new PropertyValueFactory <Customer, Integer> ("ID"));
          nameCol.setCellValueFactory(new PropertyValueFactory <Customer, String> ("Name"));
          addressCol.setCellValueFactory(new PropertyValueFactory <Customer, String> ("Address"));
          phoneCol.setCellValueFactory(new PropertyValueFactory <Customer, String> ("ContactNumber"));

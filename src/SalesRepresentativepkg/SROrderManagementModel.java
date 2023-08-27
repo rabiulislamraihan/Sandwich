@@ -22,24 +22,22 @@ public class SROrderManagementModel implements Serializable{
     private final String customerAddress;
     private final int customerNumber;
     private final String packageName;
-    private final LocalDate packageValidFrom;
-    private final LocalDate packageValidTill;
+    private final int duration;
     private final String teamName;
     private final LocalDate appointmentDate;
     
-    public SROrderManagementModel(String customerName, String customerAddress, int customerNumber, String packageName, LocalDate packageValidFrom, LocalDate packageValidTill, String teamName, LocalDate appointmentDate){
+    public SROrderManagementModel(String customerName, String customerAddress, int customerNumber, String packageName, int duration, String teamName, LocalDate appointmentDate){
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerNumber = customerNumber;
         this.packageName = packageName;
-        this.packageValidFrom = packageValidFrom;
-        this.packageValidTill = packageValidTill;
+        this.duration = duration;
         this.teamName = teamName;
         this.appointmentDate = appointmentDate;
     }
     
-        public static boolean addNewOrder(String customerName, String customerAddress, int customerNumber, String packageName, LocalDate packageValidFrom, LocalDate packageValidTill, String teamName, LocalDate appointmentDate){
-        SROrderManagementModel newOrder = new SROrderManagementModel(customerName, customerAddress, customerNumber, packageName, packageValidFrom, packageValidTill, teamName, appointmentDate);
+        public static boolean addNewOrder(String customerName, String customerAddress, int customerNumber, String packageName, int duration, String teamName, LocalDate appointmentDate){
+        SROrderManagementModel newOrder = new SROrderManagementModel(customerName, customerAddress, customerNumber, packageName, duration, teamName, appointmentDate);
         File f = null;
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;
@@ -84,18 +82,15 @@ public class SROrderManagementModel implements Serializable{
         return packageName;
     }
 
-    public LocalDate getPackageValidFrom() {
-        return packageValidFrom;
+    public int getDuration() {
+        return duration;
     }
 
-    public LocalDate getPackageValidTill() {
-        return packageValidTill;
-    }
 
     public String getTeamName() {
         return teamName;
     }
-
+//
     public LocalDate getAppointmentDate() {
         return appointmentDate;
     }

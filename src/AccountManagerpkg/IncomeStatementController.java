@@ -116,10 +116,10 @@ public class IncomeStatementController implements Initializable {
     double netProfit = IncomeStatement.calculateNetProfit(revenue, expenses);
     double netLoss = IncomeStatement.calculateNetLoss(revenue, expenses);
 
-    double defaultSalaryAndWages = 0.0;
-    double defaultRentAndUtilities = 0.0;
-    double defaultContentAcquisition = 0.0;
-    double defaultMarketingCost = 0.0;
+    double defaultSalaryAndWages = Double.parseDouble(salaryTextfield.getText());;
+    double defaultRentAndUtilities = Double.parseDouble(rentTextfield.getText());;
+    double defaultContentAcquisition = Double.parseDouble(contentAquisitionTextfield.getText());;
+    double defaultMarketingCost = Double.parseDouble(marketingCostTextfield.getText());;
     
     AccountsManager.addIncomeData(month,defaultSalaryAndWages ,defaultRentAndUtilities , expenses, revenue,defaultContentAcquisition , defaultMarketingCost, netProfit, netLoss);
     }
@@ -154,9 +154,6 @@ public class IncomeStatementController implements Initializable {
     }
  
 
-    @FXML
-    private void viewIncomeChartButton(MouseEvent event) {
-    }
 
     
 }

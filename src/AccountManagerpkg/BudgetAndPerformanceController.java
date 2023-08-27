@@ -1,16 +1,15 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package AccountManagerpkg;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import static java.lang.Math.abs;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -20,8 +19,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import mainpkg.PDFGenerator;
 
-
+/**
+ * FXML Controller class
+ *
+ * @author sumit
+ */
 public class BudgetAndPerformanceController implements Initializable {
 
     @FXML
@@ -31,9 +35,19 @@ public class BudgetAndPerformanceController implements Initializable {
     @FXML
     private TextField actualRevenueTextField;
     @FXML
-    private TableView<BudgetAndPerformance> budgetDataTable;
+    private ComboBox<String> selectMonthToAddDataCombobox;
     @FXML
-    private TableColumn<BudgetAndPerformance, String> budgetMonthColumn;
+    private TextField projectedExpensesTextField;
+    @FXML
+    private TextField actualExpensesTextField;
+    @FXML
+    private Label revenueVarianceLabel;
+    @FXML
+    private Label expensesVarianceLabel;
+    @FXML
+    private TableView<BudgetAndPerformance> budgetAndPerformanceTable;
+    @FXML
+    private TableColumn<BudgetAndPerformance, String> monthColumn;
     @FXML
     private TableColumn<BudgetAndPerformance, Double> budgetColumn;
     @FXML
@@ -41,202 +55,106 @@ public class BudgetAndPerformanceController implements Initializable {
     @FXML
     private TableColumn<BudgetAndPerformance, Double> projectedExpensesColumn;
     @FXML
-    private ComboBox<String> selectMonthToAddDataCombobox;
+    private TableColumn<BudgetAndPerformance, Double> actualRevenueColumn;
     @FXML
-    private ComboBox<String> selectMonthToSeePerformanceCombonox;
-    @FXML
-    private TextField actualExpensesTextField;
-    @FXML
-    private TableView<BudgetAndPerformance> performanceDataTable;
-    @FXML
-    private TableColumn<BudgetAndPerformance, String> performanceMonthColumn;
+    private TableColumn<BudgetAndPerformance, Double> actualExpensesColumn;
     @FXML
     private TableColumn<BudgetAndPerformance, Double> revenueVarianceColumn;
     @FXML
     private TableColumn<BudgetAndPerformance, Double> expensesVarianceColumn;
-    @FXML
-    private TextField projectedExpensesTextField;
-    @FXML
-    private Label revenueVarianceLabel;
-    @FXML
-    private Label expensesVarianceLabel;
-    ArrayList <BudgetAndPerformance> list;
 
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        populateMonthComboBoxes();
-        budgetMonthColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, String>("month"));
+        selectMonthToAddDataCombobox.getItems().addAll("January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December");
+        
+        monthColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, String>("month"));
         budgetColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, Double>("budget"));
-        projectedRevenueColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, Double>("projectedRevenue"));
-        projectedExpensesColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, Double>("projectedExpenses"));
+        projectedRevenueColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("projectedRevenue"));
+        projectedExpensesColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("projectedExpenses"));
+        actualRevenueColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("actualRevenue"));
+        actualExpensesColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("actualExpenses"));
+        expensesVarianceColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("expensesVariance"));
+        revenueVarianceColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance,Double>("revenueVariance"));
         
-        
-        performanceMonthColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, String>("month"));
-        revenueVarianceColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, Double>("revenueVariance"));
-        expensesVarianceColumn.setCellValueFactory(new PropertyValueFactory<BudgetAndPerformance, Double>("expensesVariance"));
+        // TODO
     }    
-    
 
-    public void populateMonthComboBoxes() {
-        selectMonthToSeePerformanceCombonox.getItems().clear();
-        selectMonthToAddDataCombobox.getItems().clear();
+    @FXML
+    private void viewDataButtonOnClick(MouseEvent event) {
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
         
-        list = AccountsManager.getEnteredMonths();
-        for (int i = 0; i < list.size(); i ++) {
-            if(list.get(i).getActualExpenses()==0) {
-                selectMonthToSeePerformanceCombonox.getItems().add(list.get(i).getMonth());
-            }
-        }
-        
-        ArrayList<String> monthList = new ArrayList<>();
-        monthList.add("January");
-        monthList.add("February");
-        monthList.add("March");
-        monthList.add("April");
-        monthList.add("May");
-        monthList.add("June");
-        monthList.add("July");
-        monthList.add("August");
-        monthList.add("September");
-        monthList.add("October");
-        monthList.add("November");
-        monthList.add("December");
-        
-        for (int i = 0; i < monthList.size(); i ++) {
-            boolean found = false;
-            for (int j = 0; j < list.size(); j ++) {
-                if(monthList.get(i).equals(list.get(j).getMonth())) {
-                    found = true;
-                    break;
+        try {
+            f = new File("BudgetAndPerformance.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+             BudgetAndPerformance F;
+            try{
+                budgetAndPerformanceTable.getItems().clear();
+                while(true){
+                    F = (BudgetAndPerformance)ois.readObject();
+                    budgetAndPerformanceTable.getItems().add(F);
                 }
-            }
-            if(!found) {
-                selectMonthToAddDataCombobox.getItems().add(monthList.get(i));
-            }
+            }//end of nested try
+            catch(Exception e){
+                //
+            }//nested catch                
+        } catch (IOException ex) { } 
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
         }
-        
     }
     
-
-
-    @FXML
-    private void addBudgetDataButtonOnClick(MouseEvent event) {
-        String month = selectMonthToAddDataCombobox.getValue().toString();
-        double budget = Double.parseDouble(budgetTextField.getText());
-        double projectedRevenue = Double.parseDouble(projectedRevenueTextField.getText());
-        double projectedExpenses= Double.parseDouble(projectedExpensesTextField.getText());
-        
-
-
-        AccountsManager.addProjectedData(
-                                      month,
-                                      budget,
-                                      projectedRevenue,
-                                      projectedExpenses
-                                    );
-        populateMonthComboBoxes();
-        
-    }
-
-    @FXML
-    private void viewBudgetDataButtonOnClick(MouseEvent event) {
-        budgetDataTable.getItems().clear();
-        list = AccountsManager.getEnteredMonths();
-        ObservableList <BudgetAndPerformance> oList = FXCollections.observableArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            oList.add(list.get(i));
-        }
-        budgetDataTable.getItems().addAll(oList);
-        
-//        File f = null;
-//        FileInputStream fis = null;      
-//        ObjectInputStream ois = null;
-//        
-//        try {
-//            f = new File("ProjectedData.bin");
-//            fis = new FileInputStream(f);
-//            ois = new ObjectInputStream(fis);
-//             BudgetAndPerformance F;
-//            try{
-//                while(true){
-//                    F = (BudgetAndPerformance)ois.readObject();
-//                    budgetDataTable.getItems().add(F);
-//                }
-//            }//end of nested try
-//            catch(Exception e){
-//                //
-//            }//nested catch                
-//        } catch (IOException ex) { } 
-//        finally {
-//            try {
-//                if(ois != null) ois.close();
-//            } catch (IOException ex) { }
-//        }
-    }
-    
-
-    @FXML
-    private void addPerformanceDataButtonOnClick(MouseEvent event) {
-        String month = selectMonthToSeePerformanceCombonox.getValue();
-        
-        double actualRevenue = Double.parseDouble(actualRevenueTextField.getText());
-        double actualExpenses = Double.parseDouble(actualExpensesTextField.getText());
-        double revenueVariance = 0;
-        double expensesVariance = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getMonth().equals(month)) {
-                revenueVariance = abs(actualRevenue - list.get(i).getProjectedRevenue());
-            }
-        }
-        
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getMonth().equals(month)) {
-                expensesVariance = abs(actualExpenses - list.get(i).getProjectedExpenses());
-            }
-        }
-        AccountsManager.update(month, actualRevenue, actualExpenses,  revenueVariance, expensesVariance);
-        
-        
-        
-
-        
-    }
-
-    @FXML
-    private void viewPerformanceDataButtonOnClick(MouseEvent event) {
-        performanceDataTable.getItems().clear();
-        list = AccountsManager.getEnteredMonths();
-        ObservableList <BudgetAndPerformance> oList = FXCollections.observableArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getActualExpenses()!=0) {
-                oList.add(list.get(i));
-
-            }
-        }
-        performanceDataTable.getItems().addAll(oList);
-    }
 
     @FXML
     private void calculateRevenueVarianceButtonOnClick(MouseEvent event) {
-        String month = selectMonthToSeePerformanceCombonox.getValue();
-        double actualRevenue = Double.parseDouble(actualRevenueTextField.getText());
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getMonth().equals(month)) {
-                revenueVarianceLabel.setText(Double.toString(abs(actualRevenue - list.get(i).getProjectedRevenue())));
-            }
+            double projectedRevenue = Double.parseDouble(projectedRevenueTextField.getText());
+            double actualRevenue = Double.parseDouble(actualRevenueTextField.getText());
+
+            double revenueVariance = BudgetAndPerformance.calculateRevenueVariance(projectedRevenue, actualRevenue);
+            revenueVarianceLabel.setText(String.valueOf(revenueVariance));
         }
-        
-    }
+
+    
 
     @FXML
     private void calculateExpensesVarianceButtonOnClick(MouseEvent event) {
-        String month = selectMonthToSeePerformanceCombonox.getValue();
-        double actualExpenses = Double.parseDouble(actualExpensesTextField.getText());
-        for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getMonth().equals(month)) {
-                expensesVarianceLabel.setText(Double.toString(abs(actualExpenses - list.get(i).getProjectedExpenses())));
-            }
-        }
+            double projectedExpenses = Double.parseDouble(projectedExpensesTextField.getText());
+            double actualExpenses = Double.parseDouble(actualExpensesTextField.getText());
+
+            double expensesVariance = BudgetAndPerformance.calculateExpensesVariance(projectedExpenses, actualExpenses);
+            expensesVarianceLabel.setText(String.valueOf(expensesVariance));
+
     }
+
+    @FXML
+    private void addDataButtonOnClick(MouseEvent event) {
+        String month = selectMonthToAddDataCombobox.getValue();
+        double budget = Double.parseDouble(budgetTextField.getText());
+        double projectedRevenue = Double.parseDouble(projectedRevenueTextField.getText());
+        double actualRevenue = Double.parseDouble(actualRevenueTextField.getText());
+        double projectedExpenses = Double.parseDouble(projectedExpensesTextField.getText());
+        double actualExpenses = Double.parseDouble(actualExpensesTextField.getText());
+        double revenueVariance = Double.parseDouble(revenueVarianceLabel.getText());
+        double expensesVariance = Double.parseDouble(expensesVarianceLabel.getText());
+
+       AccountsManager.addBudgetAndPerformanceData(month, budget, projectedRevenue, actualRevenue, projectedExpenses, actualExpenses, revenueVariance, expensesVariance);
+
+    }
+
+    @FXML
+    private void downloadPDFButton(MouseEvent event) {
+        BudgetAndPerformance b = budgetAndPerformanceTable.getSelectionModel().getSelectedItem();
+        
+        PDFGenerator.generatePdf(b.toString());
+    }
+
+    
 }

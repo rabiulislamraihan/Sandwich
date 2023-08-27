@@ -17,6 +17,7 @@
             <Menu mnemonicParsing="false" text="License &amp; Agreement">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#licenseOnClick" text="License" />
+                  <MenuItem mnemonicParsing="false" onAction="#agreementOnClick" text="Agreement" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Actions">
@@ -24,6 +25,13 @@
                 <MenuItem mnemonicParsing="false" onAction="#contentScheduleOnClick" text="Create Content Schedule" />
                   <MenuItem mnemonicParsing="false" onAction="#contentPlanOnClick" text="Create Content Plan" />
                   <MenuItem mnemonicParsing="false" onAction="#deleteContentOnClick" text="Delete Content" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Informations">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#customerAnalyticsOnClick" text="Customer Anlytics" />
+                  <MenuItem mnemonicParsing="false" onAction="#feedbackOnClick" text="Feedbacks" />
+                  <MenuItem mnemonicParsing="false" onAction="#customerInformationsOnClick" text="Customer Informations" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Logout">

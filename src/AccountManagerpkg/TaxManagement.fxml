@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.TaxManagementController">
+   <children>
+      <Label layoutX="64.0" layoutY="48.0" prefHeight="17.0" prefWidth="53.0" text="Month: " />
+      <Label layoutX="61.0" layoutY="92.0" text="Income:" />
+      <Label layoutX="59.0" layoutY="144.0" text="Deductions:" />
+      <Label layoutX="364.0" layoutY="84.0" text="Taxable Income:" />
+      <Button layoutX="698.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#calculateTaxButton" prefHeight="25.0" prefWidth="141.0" text="Calculate Tax" />
+      <Label layoutX="365.0" layoutY="118.0" text="Tax Percentage:" />
+      <TextField fx:id="deductionTextfield" layoutX="142.0" layoutY="140.0" />
+      <Label layoutX="662.0" layoutY="97.0" prefHeight="17.0" prefWidth="63.0" text="Total Tax:" />
+      <Label fx:id="totalTaxLabel" layoutX="725.0" layoutY="93.0" prefHeight="25.0" prefWidth="150.0" />
+      <ComboBox fx:id="monthCombobox" layoutX="141.0" layoutY="44.0" prefWidth="150.0" />
+      <TextField fx:id="taxPercentageTextfield" layoutX="479.0" layoutY="114.0" />
+      <Label fx:id="taxableIncomeLabel" layoutX="479.0" layoutY="80.0" prefHeight="25.0" prefWidth="149.0" />
+      <Line endX="-100.0" endY="167.0" layoutX="416.0" layoutY="42.0" startX="-100.0" startY="-8.333328247070312" />
+      <TableView fx:id="taxDataTable" layoutX="54.0" layoutY="271.0" prefHeight="301.0" prefWidth="791.0">
+        <columns>
+          <TableColumn fx:id="monthColumn" prefWidth="122.33334350585938" text="Month" />
+          <TableColumn fx:id="incomeColumn" prefWidth="115.66665649414062" text="Income" />
+            <TableColumn fx:id="deductionColumn" prefWidth="130.0" text="Deduction" />
+            <TableColumn fx:id="taxPercentageColumn" prefWidth="154.6666259765625" text="Tax Percentage" />
+            <TableColumn fx:id="taxableIncomeColumn" prefWidth="123.66668701171875" text="Taxable Income" />
+            <TableColumn fx:id="totalTaxColumn" prefWidth="142.0" text="Total Tax" />
+        </columns>
+      </TableView>
+      <Button layoutX="211.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#addDataButtonOnClick" prefHeight="25.0" prefWidth="161.0" text="Add Data" />
+      <Button layoutX="546.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#viewDataButtonOnClick" prefHeight="25.0" prefWidth="149.0" text="View Data" />
+      <Button layoutX="375.0" layoutY="586.0" mnemonicParsing="false" onMouseClicked="#downloadTaxReportButton" text="Download Tax Report" />
+      <TextField fx:id="incomeTextfield" layoutX="142.0" layoutY="88.0" />
+      <Button layoutX="337.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#calculateTaxableIncomeButton" prefHeight="25.0" prefWidth="283.0" text="Calculate Taxable Income" />
+      <Line endX="-100.0" endY="174.0" layoutX="741.0" layoutY="34.0" startX="-100.0" />
+   </children>
+</AnchorPane>

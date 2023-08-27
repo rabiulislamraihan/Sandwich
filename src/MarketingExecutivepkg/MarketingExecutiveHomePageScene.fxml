@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MarketingExecutivepkg.MarketingExecutiveHomePageSceneController">
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MarketingExecutivepkg.MarketingExecutiveHomePageSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -19,16 +19,16 @@
                   <MenuItem mnemonicParsing="false" onAction="#viewUpdateBrandVisionAndGuidelinesOnClick" text="View/Update Brand Vision and Guidelines" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Logout">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Marketing Campaign">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#CreateCampaignOnClick" text="Create Campaign" />
                   <MenuItem mnemonicParsing="false" onAction="#campaignReportOnClick" text="Campaign Report" />
                   <MenuItem mnemonicParsing="false" onAction="#campaignPerformanceOnClick" text="Campaign Performance" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Logout">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#LogoutButtonOnClick" text="Logout" />
                </items>
             </Menu>
         </menus>

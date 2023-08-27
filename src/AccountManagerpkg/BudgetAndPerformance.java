@@ -17,15 +17,15 @@ public class BudgetAndPerformance implements Serializable {
     private double revenueVariance;
     private double expensesVariance;
 
-    public BudgetAndPerformance(String month, double budget, double projectedRevenue, double projectedExpenses) {
+    public BudgetAndPerformance(String month, double budget, double projectedRevenue, double actualRevenue, double projectedExpenses, double actualExpenses, double revenueVariance, double expensesVariance) {
         this.month = month;
         this.budget = budget;
         this.projectedRevenue = projectedRevenue;
-        this.actualRevenue = 0;
+        this.actualRevenue = actualRevenue;
         this.projectedExpenses = projectedExpenses;
-        this.actualExpenses = 0;
-        this.revenueVariance = 0;
-        this.expensesVariance = 0;
+        this.actualExpenses = actualExpenses;
+        this.revenueVariance = revenueVariance;
+        this.expensesVariance = expensesVariance;
     }
 
     public String getMonth() {
@@ -110,4 +110,15 @@ public class BudgetAndPerformance implements Serializable {
         }
     }
 
+    @Override
+    public String toString() {
+        return  "Month = " + month +
+                "\nBudget = " + budget +
+                "\nProjected Revenue = " + projectedRevenue +
+                "\nActual Revenue = " + actualRevenue +
+                "\nProjected Expenses = " + projectedExpenses +
+                "\nActualExpenses = " + actualExpenses +
+                "\nRevenue Variance = " + revenueVariance +
+                "\nExpenses Variance = " + expensesVariance + '\n';
+    }
 }

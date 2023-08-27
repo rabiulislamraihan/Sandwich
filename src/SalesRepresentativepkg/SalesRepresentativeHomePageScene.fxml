@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99CCFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalesRepresentativepkg.SalesRepresentativeHomePageSceneController">
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99CCFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SalesRepresentativepkg.SalesRepresentativeHomePageSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -19,16 +19,14 @@
             <Menu mnemonicParsing="false" text="Actions">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#srManageOrdersOnClick" text="Manage Orders" />
-                  <MenuItem mnemonicParsing="false" onAction="#srProductPresentationOnClick" text="Product Presentation" />
                   <MenuItem mnemonicParsing="false" onAction="#srPricingOnClick" text="Pricing" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Information">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#leadinformationonclick" text="Lead Informations" />
-                  <MenuItem mnemonicParsing="false" text="Service Availability and Coverage" />
-                  <MenuItem mnemonicParsing="false" text="Customer Account Information" />
-                  <MenuItem mnemonicParsing="false" text="Performance" />
+                  <MenuItem mnemonicParsing="false" onAction="#feedbackOnClick" text="Customer Feedback" />
+                  <MenuItem mnemonicParsing="false" onAction="#customerInformationOnClick" text="Customer Account Information" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

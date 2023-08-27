@@ -12,31 +12,31 @@
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountManagerpkg.BalanceSheetController">
    <children>
       <ComboBox fx:id="selectMonthForBalanceSheetCombobox" layoutX="32.0" layoutY="25.0" prefWidth="150.0" promptText="Select Month" />
-      <Label layoutX="68.0" layoutY="94.0" text="Cash: " />
-      <Label layoutX="66.0" layoutY="128.0" text="Accounts Receivable:" />
-      <Label layoutX="67.0" layoutY="165.0" prefHeight="17.0" prefWidth="67.0" text="Investments:" />
-      <Label layoutX="32.0" layoutY="65.0" text="Assets:" />
+      <Label layoutX="69.0" layoutY="82.0" text="Cash: " />
+      <Label layoutX="67.0" layoutY="117.0" text="Accounts Receivable:" />
+      <Label layoutX="68.0" layoutY="153.0" prefHeight="17.0" prefWidth="67.0" text="Investments:" />
+      <Label layoutX="32.0" layoutY="58.0" text="Assets:" />
       <Label layoutX="388.0" layoutY="65.0" text="Liabilities:" />
       <Label layoutX="414.0" layoutY="94.0" text="Accounts Payable:" />
       <Label layoutX="418.0" layoutY="128.0" text="Loan:" />
-      <Label layoutX="68.0" layoutY="237.0" text="Total Assets:" />
+      <Label layoutX="69.0" layoutY="225.0" text="Total Assets:" />
       <Label layoutX="750.0" layoutY="153.0" text="Owner's Equity:" />
-      <Button layoutX="69.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#calculateTotalAssetsButtonOnMouseClick" text="Calculate Total Assets" />
-      <Button layoutX="413.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#calculateTotalLiabilitiesButtonOnMouseClick" prefHeight="25.0" prefWidth="147.0" text="Calculate Total Liabilities" />
+      <Button layoutX="69.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#calculateTotalAssetsButtonOnMouseClick" text="Calculate Total Assets" />
+      <Button layoutX="413.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#calculateTotalLiabilitiesButtonOnMouseClick" prefHeight="25.0" prefWidth="147.0" text="Calculate Total Liabilities" />
       <Button layoutX="717.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#calculateOwnersEquityButtonOnMouseClick" text="Calculate Owner's Equity" />
-      <TextField fx:id="cashTextfield" layoutX="198.0" layoutY="90.0" />
-      <TextField fx:id="accountsReceivableTextfield" layoutX="198.0" layoutY="125.0" />
-      <TextField fx:id="investmentTextfield" layoutX="198.0" layoutY="161.0" />
-      <TextField fx:id="totalAssetsTextfield" layoutX="198.0" layoutY="233.0" />
+      <TextField fx:id="cashTextfield" layoutX="198.0" layoutY="77.0" />
+      <TextField fx:id="accountsReceivableTextfield" layoutX="198.0" layoutY="113.0" />
+      <TextField fx:id="investmentTextfield" layoutX="198.0" layoutY="149.0" />
+      <TextField fx:id="totalAssetsTextfield" layoutX="198.0" layoutY="221.0" />
       <TextField fx:id="accountPayableTextfield" layoutX="529.0" layoutY="90.0" />
       <TextField fx:id="loanTextfield" layoutX="529.0" layoutY="125.0" />
       <TextField fx:id="ownersEquityTextfield" layoutX="717.0" layoutY="174.0" />
-      <TextField fx:id="totalLiabilityTextfield" layoutX="529.0" layoutY="233.0" />
-      <Line endX="3.0" endY="-30.0" layoutX="361.0" layoutY="297.0" startX="3.0" startY="-225.0" />
-      <Line endX="3.0" endY="-30.0" layoutX="689.0" layoutY="292.0" startX="3.0" startY="-225.0" />
-      <Label layoutX="413.0" layoutY="237.0" text="Total Liability:" />
-      <Line endX="728.6666259765625" layoutX="135.0" layoutY="277.0" startX="-100.0" />
-      <TableView fx:id="BalanceSheetTable" layoutX="34.0" layoutY="297.0" prefHeight="330.0" prefWidth="627.0">
+      <TextField fx:id="totalLiabilityTextfield" layoutX="529.0" layoutY="225.0" />
+      <Line endX="3.0" endY="-30.0" layoutX="361.0" layoutY="242.0" startX="3.0" startY="-225.0" />
+      <Line endX="3.0" endY="-30.0" layoutX="689.0" layoutY="244.0" startX="3.0" startY="-225.0" />
+      <Label layoutX="411.0" layoutY="225.0" text="Total Liability:" />
+      <Line endX="728.6666259765625" layoutX="135.0" layoutY="264.0" startX="-100.0" />
+      <TableView fx:id="BalanceSheetTable" layoutX="34.0" layoutY="277.0" prefHeight="330.0" prefWidth="627.0">
         <columns>
           <TableColumn fx:id="balanceSheetMonthColumn" prefWidth="148.66665649414062" text="Month" />
           <TableColumn fx:id="balanceSheetAssetsColumn" prefWidth="152.66668701171875" text="Total Assets" />
@@ -44,8 +44,8 @@
             <TableColumn fx:id="balanceSheetOwnersEquityColumn" prefWidth="164.33331298828125" text="Owner's Equity" />
         </columns>
       </TableView>
-      <Button layoutX="681.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#viewBalanceSheetChartButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="View Chart" />
-      <Button layoutX="681.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#addBalanceSheetDataButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="Add Data" />
-      <Button layoutX="681.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#viewBalanceSheetDataButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="View Data" />
+      <Button layoutX="681.0" layoutY="490.0" mnemonicParsing="false" onMouseClicked="#viewBalanceSheetChartButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="View Chart" />
+      <Button layoutX="681.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#addBalanceSheetDataButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="Add Data" />
+      <Button layoutX="681.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#viewBalanceSheetDataButtonOnClick" prefHeight="40.0" prefWidth="185.0" text="View Data" />
    </children>
 </AnchorPane>

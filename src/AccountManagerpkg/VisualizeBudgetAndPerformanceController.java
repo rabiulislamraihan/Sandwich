@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package AccountManagerpkg;
 
 import java.io.FileInputStream;
@@ -15,8 +18,12 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 
-
-public class VisualizeVarianceController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author sumit
+ */
+public class VisualizeBudgetAndPerformanceController implements Initializable {
 
     @FXML
     private NumberAxis numberaxis;
@@ -31,6 +38,11 @@ public class VisualizeVarianceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         selectTypeCombobox.getItems().addAll(
+                "Budget",
+                "Projected Expenses",
+                "Projected Revenue",
+                "Actual Expenses",
+                "Actual Revenue",
                 "Revenue Variance",
                 "Expenses Variance");
            
@@ -44,18 +56,35 @@ public class VisualizeVarianceController implements Initializable {
         ObjectInputStream ois = null;
         boolean result = false;
         try {
-              BudgetAndPerformance c;
-             ois = new ObjectInputStream(new FileInputStream("ProjectedData.bin"));
+             BudgetAndPerformance c;
+             ois = new ObjectInputStream(new FileInputStream("BudgetAndPerformance.bin"));
              
             while(true){
                 c = (BudgetAndPerformance) ois.readObject();
-                
+                Double value = null;
+                if(item.equals("Budget")){
+                    value = c.getBudget();
+                }
+                if(item.equals("Projected Expenses")){
+                    value = c.getProjectedExpenses();
+                }
+                if(item.equals("Projected Revenue")){
+                    value = c.getProjectedRevenue();
+                }
+                if(item.equals(" Actual Expenses")){
+                    value = c.getActualExpenses();
+                }
+                if(item.equals("Actual Revenue")){
+                    value = c.getActualRevenue();
+                }
                 if(item.equals("Revenue Variance")){
-                    series.getData().add(new XYChart.Data<String, Number>(c.getMonth(), c.getRevenueVariance()));
+                    value = c.getRevenueVariance();
                 }
-                else {
-                    series.getData().add(new XYChart.Data<String, Number>(c.getMonth(), c.getExpensesVariance()));
+                if(item.equals("Expenses Variance")){
+                    value = c.getExpensesVariance();
                 }
+                series.getData().add(new XYChart.Data<String,Number>(c.getMonth(),value));
+            
             }
         }
         catch(RuntimeException e){
@@ -69,6 +98,10 @@ public class VisualizeVarianceController implements Initializable {
         }
         visualizeBarChart.getData().clear();
         visualizeBarChart.getData().add(series);
+        
     }
+    
 
+    
+ 
 }

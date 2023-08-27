@@ -19,19 +19,25 @@
             <Menu mnemonicParsing="false" text="Budgeting and Forecasting">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#budgetAndPerformanceButton" text="Track Budget and Performance" />
-                  <MenuItem mnemonicParsing="false" onAction="#visualizeVarianceButton" text="Visualize Variance" />
+                  <MenuItem mnemonicParsing="false" onAction="#visualizeVarianceButton" text="Visualize Budget And Performance" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Financial Overview">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#balanceSheetButton" text="Balance Sheet" />
                   <MenuItem mnemonicParsing="false" onAction="#incomeStatementButton" text="Income Statement" />
+                  <MenuItem mnemonicParsing="false" onAction="#analyzeExpensesButton" text="Analyze Expenses" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Employee Salary management">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#SalaryDisbursementOnClick" text="Salary Disbursement" />
                   <MenuItem mnemonicParsing="false" onAction="#SeeEmployeeSalaryDetails" text="See Employee Salary Details" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tax Management">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#taxCalculationButton" text="Tax Calculation" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Logout">

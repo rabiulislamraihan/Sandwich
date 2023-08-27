@@ -78,6 +78,7 @@ public class ContentPlanController implements Initializable {
             a.setHeaderText("Alert");
             a.setContentText("You Must Select At Least One Day");
             a.showAndWait();
+            return;
         }
         String name = contentName.getValue();
         ContentManager.CreatePlan(name, Days);
