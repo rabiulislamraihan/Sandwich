@@ -1,6 +1,7 @@
 
 package customerpkg;
 
+import Packagepkg.SeeSubscriptionsDetailsController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -78,6 +79,15 @@ public class CustomerHomePageSceneController implements Initializable {
     private void packageFeedbackOnClick(ActionEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("PackageFeedback.fxml"));
         BorderPane.setCenter(parent); 
+    }
+
+    @FXML
+    private void viewSubscriptionButtonOnClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Packagepkg/SeeSubscriptionsDetails.fxml"));
+        Parent root = loader.load();
+        SeeSubscriptionsDetailsController ctrl = loader.getController();
+        ctrl.data(c);
+        BorderPane.setCenter(root);
     }
     
 }

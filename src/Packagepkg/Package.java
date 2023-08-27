@@ -17,7 +17,7 @@ public class Package implements Serializable {
     private int Duration;
     private int Price;
     private String Description;
-    private String Code;
+    private final String Code;
     private boolean isAvailable;
 
     public Package(String Title, int Duration, int Price, String Description, String Code, boolean isAvailable) {
@@ -127,9 +127,5 @@ public class Package implements Serializable {
 
     public String getCode() {
         return Code;
-    }
-
-    public void setCode(String Code) {
-        this.Code = Code;
     }
 }

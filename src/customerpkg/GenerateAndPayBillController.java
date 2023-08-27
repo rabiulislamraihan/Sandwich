@@ -1,6 +1,7 @@
 
 package customerpkg;
 
+import Packagepkg.Subscriptions;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -48,14 +49,7 @@ public class GenerateAndPayBillController implements Initializable {
     @FXML
     private void PayBillButtonOnClick(MouseEvent event) {
         int transactionID = Subscriptions.GenerateTransactionID();
-            Subscriptions s = new Subscriptions(
-                    c.getID(),
-                    p.getCode(),
-                    LocalDate.now(),
-                    p.getPrice(),
-                    bill,
-                    transactionID
-            );
+            Subscriptions s = new Subscriptions(c, p, bill, transactionID);
             Subscriptions.insertBill(s);
             PopUp.Message("Transaction has been Completed !\n"
                     + "Transaction ID: " + Integer.toString(transactionID));

@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import mainpkg.AppendableObjectOutputStream;
 import Packagepkg.Package;
-import customerpkg.Subscriptions;
+import Packagepkg.Subscriptions;
 import employeepkg.Salary;
 import java.util.ArrayList;
 
@@ -331,6 +331,34 @@ public interface Administrator {
             while(true){
                 c = (Salary) ois.readObject();
                 list.add(c);
+            }
+        }
+        catch(RuntimeException e){
+            e.printStackTrace();
+        }
+        catch (Exception ex) {
+            try {
+                if(ois!=null)
+                    ois.close();
+            } catch (IOException ex1) {  }           
+        }
+        return list;
+    }
+    
+    public static ObservableList<Subscriptions> getSubscriptionsList(Customer cc) {
+        
+        ObservableList <Subscriptions> list = FXCollections.observableArrayList();
+        ObjectInputStream ois = null;
+        try {
+             Subscriptions c;
+             ois = new ObjectInputStream(new FileInputStream("Subscriptions.bin"));
+             
+            while(true){
+                c = (Subscriptions) ois.readObject();
+                if(cc.getID() == c.getCustomerID()) {
+                    c.calculateRemainingDays();
+                    list.add(c);
+                }
             }
         }
         catch(RuntimeException e){

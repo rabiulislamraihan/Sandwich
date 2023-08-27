@@ -4,7 +4,7 @@
  */
 package SalesRepresentativepkg;
 
-import customerpkg.Subscriptions;
+import Packagepkg.Subscriptions;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;

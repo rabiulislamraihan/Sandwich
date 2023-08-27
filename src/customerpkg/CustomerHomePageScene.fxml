@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerpkg.CustomerHomePageSceneController">
+<BorderPane fx:id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="customerpkg.CustomerHomePageSceneController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -18,7 +18,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Package">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#BuyPackageButtonOnClick" text="Buy Package" />
+                  <MenuItem mnemonicParsing="false" onAction="#BuyPackageButtonOnClick" text="View And Buy Package" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewSubscriptionButtonOnClick" text="View Subscription List" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Survey">

@@ -1,6 +1,7 @@
 
-package customerpkg;
+package Packagepkg;
 
+import customerpkg.Customer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -20,18 +22,61 @@ import mainpkg.AppendableObjectOutputStream;
 public class Subscriptions implements Serializable {
     private int CustomerID;
     private String PackageID;
+    private String PackageName;
     private LocalDate Purchasedate;
+    private LocalDate Expirydate;
     private int price;
     private String Bill;
     private int TransactionID;
+    private long Remainigdays;
     
-    public Subscriptions(int CustomerID, String PackageID, LocalDate Purchasedate, int price, String Bill, int TransactionID) {
-        this.CustomerID = CustomerID;
-        this.PackageID = PackageID;
-        this.Purchasedate = Purchasedate;
-        this.price = price;
+    public Subscriptions(Customer c, Package p, String Bill, int TransactionID) {
+        this.CustomerID = c.getID();
+        this.PackageID = p.getCode();
+        this.PackageName = p.getTitle();
+        this.Purchasedate = LocalDate.now();
+        this.price = p.getPrice();
         this.Bill = Bill;
         this.TransactionID = TransactionID;
+        this.Expirydate = Purchasedate.plusMonths(p.getDuration());
+    }
+
+    public String getPackageName() {
+        return PackageName;
+    }
+
+    public void setPackageName(String PackageName) {
+        this.PackageName = PackageName;
+    }
+
+    public LocalDate getExpirydate() {
+        return Expirydate;
+    }
+
+    public void setExpirydate(LocalDate Expirydate) {
+        this.Expirydate = Expirydate;
+    }
+
+    public int getTransactionID() {
+        return TransactionID;
+    }
+
+    public void setTransactionID(int TransactionID) {
+        this.TransactionID = TransactionID;
+    }
+
+    public long getRemainigdays() {
+        return Remainigdays;
+    }
+
+    public void setRemainigdays(long Remainigdays) {
+        this.Remainigdays = Remainigdays;
+    }
+    
+    
+    
+    public void calculateRemainingDays () {
+        this.Remainigdays = ChronoUnit.DAYS.between(LocalDate.now(), Expirydate);
     }
     
     public static int GenerateTransactionID () {

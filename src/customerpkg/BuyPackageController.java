@@ -1,6 +1,7 @@
 
 package customerpkg;
 
+import Packagepkg.PackageDetailsController;
 import Administratorpkg.Administrator;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,8 +57,8 @@ public class BuyPackageController implements Initializable {
         
         Parent root = loader.load();
         Package p = tableView.getSelectionModel().getSelectedItem();
-//        PackageDetailsController ctrl = loader.getController();
-//        ctrl.data(p);
+        PackageDetailsController ctrl = loader.getController();
+        ctrl.data(p);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
